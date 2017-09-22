@@ -13,7 +13,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class BaseTest {
 
-    public  WebDriver driver;
+    public WebDriver driver;
 
     public BaseTest() {}
 

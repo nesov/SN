@@ -44,7 +44,7 @@
             <artifactId>guava</artifactId>
             <groupId>com.google.guava</groupId>
             <type>jar</type>
-            <version>20.0</version>
+            <version>LATEST</version>
         </dependency>
 
         <dependency>
@@ -69,6 +69,8 @@
         </dependency>
 
     </dependencies>
+
+
     <build>
         <plugins>
             <plugin>
