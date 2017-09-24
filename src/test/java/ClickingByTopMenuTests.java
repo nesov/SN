@@ -12,7 +12,6 @@ import org.openqa.selenium.interactions.Actions;
 
 public class ClickingByTopMenuTests extends BaseTest{
 
-    public SynergyApp app;
     void closeModal()throws InterruptedException{
         WebElement closebtn = driver.findElement(By.className("btnclose"));
         Actions mouseAction = new Actions(driver);
@@ -21,23 +20,19 @@ public class ClickingByTopMenuTests extends BaseTest{
     }
 
     void myWait()throws InterruptedException{
-        Thread.sleep(10000);
+        Thread.sleep(1000);
     }
 
     @BeforeTest
     @Override
     public void setUp() {
         super.setUp();
-        app = PageFactory.initElements(driver, SynergyApp.class);
-        driver.get("https://pp.synergy.net");
-
     }
 
     @AfterTest
     @Override
     public void tearDown() {
         super.tearDown();
-        driver.quit();
     }
 
     @Test

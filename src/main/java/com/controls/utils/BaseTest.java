@@ -1,6 +1,8 @@
 package com.controls.utils;
 import java.util.concurrent.TimeUnit;
 
+import app.SynergyApp;
+import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.openqa.selenium.WebDriver;
@@ -15,6 +17,8 @@ public class BaseTest {
 
     public WebDriver driver;
 
+    public SynergyApp app;
+
     public BaseTest() {}
 
         @BeforeTest(description="Preparing environment for the test..")
@@ -23,18 +27,14 @@ public class BaseTest {
              driver = new ChromeDriver();
              driver.manage().window().maximize();
              driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+             app = PageFactory.initElements(driver,  SynergyApp.class);
+
+             driver.get("https://pp.synergy.net");
+
          }
 
         @AfterTest (description = "Suspending....")
         public void tearDown(){
         driver.quit();
         }
-
-
-    public static void main(String[] args) {
-        BaseTest baseTest = new BaseTest();
-        baseTest.setUp();
-
-    }
-
 }
