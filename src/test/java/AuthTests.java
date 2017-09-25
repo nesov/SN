@@ -22,6 +22,8 @@ public class AuthTests extends BaseTest {
 
     public void test_3214(){
 
+        driver.get("https://pp.synergy.net");
+
         app.getBottomBar().clickToChat();
 
         app.getLoginModals()
