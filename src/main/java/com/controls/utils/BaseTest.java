@@ -6,8 +6,6 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import ru.stqa.selenium.factory.LocalDriverProvider;
 import ru.stqa.selenium.factory.WebDriverPool;
 
 /**
