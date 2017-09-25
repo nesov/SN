@@ -1,0 +1,13 @@
+*.xml
+*.png
+*.class
+*.html
+*.js
+Surefire test.properties
+collapseall.gif
+testng-reports.css
+*.txt
+*.lst
+*.json
+*.dumpstream
+testng.css
