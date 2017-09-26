@@ -29,8 +29,7 @@ public class LoginModals {
         return secondStepScreen;
     }
 
-
-    private class FirstStepScreen {
+    public class FirstStepScreen {
 
         private WebDriver driver;
 
@@ -43,7 +42,7 @@ public class LoginModals {
         @FindBy (xpath = "/html/body/app-synergy/dynamic-settings/root-component/signin-modal/div/div/div/div[2]/username-signin/div/div[2]/form/div/div[3]/button")
         private WebElement submitBtn;
 
-        @FindBy (xpath = "/html/body/app-synergy/dynamic-settings/root-component/signin-modal/div/div/div/div[2]/username-signin/div/div[2]/form/div/div[3]/a")
+        @FindBy (className = "\"at_card-form-link at_link pointer\"\n")
         private WebElement forgotPasswordBtn;
 
         @FindBy (xpath = "/html/body/app-synergy/dynamic-settings/root-component/signin-modal/div/div/div/div[2]/username-signin/div/div[2]/form/div/div[2]/div/div[2]/label/div/span[2]")
@@ -54,19 +53,19 @@ public class LoginModals {
             PageFactory.initElements(driver, this);
         }
 
-        public WebElement getCloseBtn() {
+        private WebElement getCloseBtn() {
             return closeBtn;
         }
 
-        public WebElement getEmailInputField() {
+        private WebElement getEmailInputField() {
             return emailInputField;
         }
 
-        public WebElement getForgotPasswordBtn() {
+        private WebElement getForgotPasswordBtn() {
             return forgotPasswordBtn;
         }
 
-        public WebElement getSubmitBtn() {
+        private WebElement getSubmitBtn() {
             return submitBtn;
         }
 
@@ -102,7 +101,7 @@ public class LoginModals {
         }
     }
 
-    private class SecondStepScreen {
+    public class SecondStepScreen {
 
         private WebDriver driver;
 
