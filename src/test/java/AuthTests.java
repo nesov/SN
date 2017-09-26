@@ -27,7 +27,7 @@ public class AuthTests extends BaseTest {
         app.getBottomBar().clickToChat();
 
         app.getLoginModals()
-                .getFirstStepScreen();
+                .getFirstStepScreen().;
 
 
     }

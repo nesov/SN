@@ -8,18 +8,17 @@ import ru.yandex.qatools.allure.annotations.Step;
 
 public class LoginModals {
 
-    protected WebDriver driver;
+    private WebDriver driver;
 
-    private FirstStepScreen firstStepScreen;
+    private LoginModals.FirstStepScreen firstStepScreen;
 
-    private SecondStepScreen secondStepScreen;
+    private LoginModals.SecondStepScreen secondStepScreen;
 
     public LoginModals(WebDriver driver){
         this.driver = driver;
         firstStepScreen = new FirstStepScreen(driver);
-//      secondStepScreen = new SecondStepScreen(driver);
+        secondStepScreen = new SecondStepScreen(driver);
         PageFactory.initElements(driver, this);
-
     }
 
     public FirstStepScreen getFirstStepScreen() {
@@ -30,7 +29,10 @@ public class LoginModals {
         return secondStepScreen;
     }
 
+
     private class FirstStepScreen {
+
+        private WebDriver driver;
 
         @FindBy (className = "btnclose")
         private WebElement closeBtn;
@@ -47,7 +49,8 @@ public class LoginModals {
         @FindBy (xpath = "/html/body/app-synergy/dynamic-settings/root-component/signin-modal/div/div/div/div[2]/username-signin/div/div[2]/form/div/div[2]/div/div[2]/label/div/span[2]")
         private WebElement errorMessage;
 
-        FirstStepScreen(WebDriver driver){
+        public FirstStepScreen(WebDriver driver){
+            this.driver = driver;
             PageFactory.initElements(driver, this);
         }
 
@@ -80,14 +83,15 @@ public class LoginModals {
         }
 
         @Step
-        public void clickForgotPasswordLink(){
+        public FirstStepScreen clickForgotPasswordLink(){
             getForgotPasswordBtn().click();
+            return this;
         }
 
         @Step
         public SecondStepScreen clickToNextBtn() throws  NullPointerException{
 
-            SecondStepScreen secondStepScreen = new SecondStepScreen();
+            SecondStepScreen secondStepScreen = new SecondStepScreen(driver);
 
             getSubmitBtn().click();
 
@@ -98,7 +102,80 @@ public class LoginModals {
         }
     }
 
-
     private class SecondStepScreen {
+
+        private WebDriver driver;
+
+        @FindBy(xpath = "/html/body/app-synergy/dynamic-settings/root-component/signin-modal/div/div/div/div[2]/password-signin/a")
+        WebElement backBtn;
+
+        @FindBy(xpath = "/html/body/app-synergy/dynamic-settings/root-component/signin-modal/div/div/div/div[1]/a" )
+        WebElement closeBtn;
+
+        @FindBy(xpath = "//*[@id=\"password\"]")
+        WebElement passwordInput;
+
+        @FindBy(xpath = "/html/body/app-synergy/dynamic-settings/root-component/signin-modal/div/div/div/div[2]/password-signin/form/div/a")
+        WebElement forgotPasswordLink;
+
+        @FindBy(xpath = "/html/body/app-synergy/dynamic-settings/root-component/signin-modal/div/div/div/div[2]/password-signin/form/div/div[5]/button")
+        WebElement loginBtn;
+
+        public SecondStepScreen(WebDriver driver) {
+            this.driver = driver;
+            PageFactory.initElements(driver, this);
+        }
+
+        public WebElement getCloseBtn() {
+            return closeBtn;
+        }
+
+        public WebElement getBackBtn() {
+            return backBtn;
+        }
+
+        public WebElement getForgotPasswordLink() {
+            return forgotPasswordLink;
+        }
+
+        public WebElement getLoginBtn() {
+            return loginBtn;
+        }
+
+        public WebElement getPasswordInput() {
+            return passwordInput;
+        }
+
+        @Step
+        public SecondStepScreen clickCloseBtn(){
+            getCloseBtn().click();
+            return this;
+        }
+
+        @Step
+        public SecondStepScreen clickLoginBtn(){
+            getLoginBtn().click();
+            return this;
+        }
+
+        @Step
+        public SecondStepScreen clickAndTypePassword(String password){
+            getPasswordInput().clear();
+            getPasswordInput().sendKeys(password);
+            return this;
+        }
+
+        @Step
+        public SecondStepScreen clickForgotPasswordLink(){
+            getForgotPasswordLink().click();
+            return this;
+        }
+
+        @Step
+        public FirstStepScreen clickBackBtn(){
+            getBackBtn().click();
+            FirstStepScreen firstStepScreen = new FirstStepScreen(driver);
+            return firstStepScreen;
+        }
     }
 }
