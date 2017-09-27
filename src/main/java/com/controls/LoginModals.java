@@ -69,9 +69,9 @@ public class LoginModals {
             return submitBtn;
         }
 
-        @Step
-        public FirstStepScreen setCursorIntoEmailField(){
-            getEmailInputField().click();
+        @Step("Filling out email address")
+        public FirstStepScreen setCursorAndWriteIntoEmailField(String email){
+            getEmailInputField().sendKeys(email);
             return this;
         }
 
@@ -81,13 +81,14 @@ public class LoginModals {
             return this;
         }
 
-        @Step
-        public FirstStepScreen clickForgotPasswordLink(){
+        @Step ("Cliking to Forgot password bnt")
+        public FirstStepScreen clickForgotPasswordLink()throws Exception {
+            Thread.sleep(5000);
             getForgotPasswordBtn().click();
             return this;
         }
 
-        @Step
+        @Step ("Clicking to Next btn")
         public SecondStepScreen clickToNextBtn() throws  NullPointerException{
 
             SecondStepScreen secondStepScreen = new SecondStepScreen(driver);
@@ -111,7 +112,7 @@ public class LoginModals {
         @FindBy(xpath = "/html/body/app-synergy/dynamic-settings/root-component/signin-modal/div/div/div/div[1]/a" )
         WebElement closeBtn;
 
-        @FindBy(xpath = "//*[@id=\"password\"]")
+        @FindBy(id = "password")
         WebElement passwordInput;
 
         @FindBy(xpath = "/html/body/app-synergy/dynamic-settings/root-component/signin-modal/div/div/div/div[2]/password-signin/form/div/a")

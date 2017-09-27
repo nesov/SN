@@ -38,7 +38,6 @@ public class SynergyApp {
 
     public BottomMenu getBottomBar(){
         return bottomMenu;
-
     }
 
     public TopMenu getTopMenu(){

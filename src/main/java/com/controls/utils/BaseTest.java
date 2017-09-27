@@ -24,7 +24,7 @@ import ru.stqa.selenium.factory.WebDriverPool;
         public void setUp() {
             System.setProperty("webdriver.chrome.driver","drivers/chromedriver");
             driver = WebDriverPool.DEFAULT.getDriver(DesiredCapabilities.chrome());
-            driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+            driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
             app = PageFactory.initElements(driver,  SynergyApp.class);
          }
 
