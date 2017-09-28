@@ -11,3 +11,5 @@ testng-reports.css
 *.json
 *.dumpstream
 testng.css
+*.css
+*.gif
