@@ -71,7 +71,11 @@ public class LoginModals {
 
         @Step("Filling out email address")
         public FirstStepScreen setCursorAndWriteIntoEmailField(String email){
-            getEmailInputField().sendKeys(email);
+            try{
+                    getEmailInputField().sendKeys(email);
+            } catch (Exception ex){
+                ex.printStackTrace();
+            }
             return this;
         }
 
@@ -83,7 +87,6 @@ public class LoginModals {
 
         @Step ("Cliking to Forgot password bnt")
         public FirstStepScreen clickForgotPasswordLink()throws Exception {
-            Thread.sleep(5000);
             getForgotPasswordBtn().click();
             return this;
         }

@@ -38,8 +38,6 @@ public class AuthTests extends BaseTest {
         app.getLoginModals().getFirstStepScreen()
                 .setCursorAndWriteIntoEmailField("a.nesov@synergetica.co").clickToNextBtn()
                 .clickAndTypePassword("OPtvb6gh").clickLoginBtn();
-
-        Thread.sleep(5000);
     }
 
 
