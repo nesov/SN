@@ -30,24 +30,24 @@ public class BottomMenu {
         PageFactory.initElements(driver, this);
     }
 
-    @Step
+    @Step ("Кликаем на елемент боттом бара Explore")
     public void clickToExplore() {
-        explore.click();
+        getExploreElement().click();
     }
 
-    @Step
+    @Step ("Кликаем на елемент боттом бара Chat")
     public void clickToChat() {
-        chat.click();
+        getChatElement().click();
     }
 
-    @Step
+    @Step ("Кликаем на елемент боттом бара Mail")
     public void clickToMail() {
-        mail.click();
+        getMailElement().click();
     }
 
-    @Step
+    @Step ("Кликаем на елемент боттом бара App Mode")
     public void clickToAppMode() {
-        appmode.click();
+        getAppmodeElement().click();
     }
 
     public WebElement getAppmodeElement() {

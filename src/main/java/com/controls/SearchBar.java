@@ -28,25 +28,28 @@ public class SearchBar {
     @FindBy (xpath = "//*[@id=\"event-search\"]")
     private WebElement searchInput;
 
-    @FindBy (xpath = "MODE_ICON")
+    @FindBy (xpath = "")
+    private WebElement plusOption;
+
+    @FindBy (xpath = "")
     private WebElement modeIcon;
 
-    @Step
+    @Step ("Вводим строку запроса в поле поиска")
     public void typeTextIntoSearch(String text){
         searchInput.clear();
         searchInput.sendKeys(text);
         searchInput.click();
     }
 
-    @Step
+    @Step ("Кликаем на кнопку переключения режима просмотра")
     public void clickToViewModeIcon(){
         modeIcon.click();
     }
 
     enum ViewModeOptions{
 
-        LIST_VIEV = "",
-        GRID_VIEW = "" ,
+        LIST_VIEV,
+        GRID_VIEW,
         LOCATION_VIEW
     }
 

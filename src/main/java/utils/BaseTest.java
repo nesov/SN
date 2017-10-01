@@ -1,4 +1,4 @@
-package com.controls.utils;
+package utils;
 import java.util.concurrent.TimeUnit;
 import app.SynergyApp;
 import org.openqa.selenium.remote.DesiredCapabilities;

@@ -1,10 +1,10 @@
-import com.controls.utils.BaseTest;
+import utils.BaseTest;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import ru.yandex.qatools.allure.annotations.Description;
 
-public class CacheClean extends BaseTest {
+public class CacheCleanTests extends BaseTest {
 
     private static final String COMMAND ="/reset_node_cache";
 

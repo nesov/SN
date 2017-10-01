@@ -37,37 +37,37 @@ public class TopMenu{
         PageFactory.initElements(driver, this);
     }
 
-    @Step
+    @Step ("Кликаем на логотип")
     public TopMenu clickToLogo() throws InterruptedException {
         logo.click();
         return this;
     }
 
-    @Step
+    @Step ("Кликаем на Собития")
     public TopMenu clickToEvents() throws InterruptedException{
         events.click();
         return this;
     }
 
-    @Step
+    @Step ("Кликаем на Компании")
     public TopMenu clickToCompanies() throws InterruptedException {
         companies.click();
         return this;
     }
 
-    @Step
+    @Step ("Кликаем на Продукты")
     public TopMenu clickToProducts()throws InterruptedException{
         products.click();
         return this;
     }
 
-    @Step
+    @Step ("Кликаем на Людей")
     public TopMenu clickToPeople() throws InterruptedException {
         people.click();
         return this;
     }
 
-    @Step
+    @Step ("Кликаем на Новости")
     public TopMenu clickToNews() throws InterruptedException {
         news.click();
         return this;

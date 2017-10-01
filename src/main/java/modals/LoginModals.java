@@ -1,4 +1,4 @@
-package com.controls;
+package modals;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -9,26 +9,20 @@ import ru.yandex.qatools.allure.annotations.Step;
 public class LoginModals {
 
     private WebDriver driver;
-
     private LoginModals.FirstStepScreen firstStepScreen;
-
     private LoginModals.SecondStepScreen secondStepScreen;
-
     public LoginModals(WebDriver driver){
         this.driver = driver;
         firstStepScreen = new FirstStepScreen(driver);
         secondStepScreen = new SecondStepScreen(driver);
         PageFactory.initElements(driver, this);
     }
-
     public FirstStepScreen getFirstStepScreen() {
         return firstStepScreen;
     }
-
     public SecondStepScreen getSecondStepScreen() {
         return secondStepScreen;
     }
-
     public class FirstStepScreen {
 
         private WebDriver driver;
@@ -36,7 +30,7 @@ public class LoginModals {
         @FindBy (className = "btnclose")
         private WebElement closeBtn;
 
-        @FindBy (xpath = "//*[@id=\"username\"]")
+        @FindBy (id = "username")
         private WebElement emailInputField;
 
         @FindBy (xpath = "/html/body/app-synergy/dynamic-settings/root-component/signin-modal/div/div/div/div[2]/username-signin/div/div[2]/form/div/div[3]/button")
@@ -72,7 +66,9 @@ public class LoginModals {
         @Step("Filling out email address")
         public FirstStepScreen setCursorAndWriteIntoEmailField(String email){
             try{
-                    getEmailInputField().sendKeys(email);
+                getEmailInputField().click();
+                getEmailInputField().sendKeys(email);
+                Thread.sleep(2000);
             } catch (Exception ex){
                 ex.printStackTrace();
             }
@@ -104,7 +100,6 @@ public class LoginModals {
             return null;
         }
     }
-
     public class SecondStepScreen {
 
         private WebDriver driver;
@@ -149,32 +144,32 @@ public class LoginModals {
             return passwordInput;
         }
 
-        @Step
+        @Step ("Нажиимаем на кнопку закрытия дилога")
         public SecondStepScreen clickCloseBtn(){
             getCloseBtn().click();
             return this;
         }
 
-        @Step
+        @Step ("Нажимаем накнопку логина")
         public SecondStepScreen clickLoginBtn(){
             getLoginBtn().click();
             return this;
         }
 
-        @Step
+        @Step ("Ставим курсор в поле ввода и вводим пароль")
         public SecondStepScreen clickAndTypePassword(String password){
             getPasswordInput().clear();
             getPasswordInput().sendKeys(password);
             return this;
         }
 
-        @Step
+        @Step ("Кликаем по ссылке сброса пароля")
         public SecondStepScreen clickForgotPasswordLink(){
             getForgotPasswordLink().click();
             return this;
         }
 
-        @Step
+        @Step ("Нажимаем кнопку назад")
         public FirstStepScreen clickBackBtn(){
             getBackBtn().click();
             FirstStepScreen firstStepScreen = new FirstStepScreen(driver);

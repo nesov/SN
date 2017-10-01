@@ -1,4 +1,4 @@
-import com.controls.utils.BaseTest;
+import utils.BaseTest;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -36,8 +36,10 @@ public class AuthTests extends BaseTest {
     public void happyCaseLogin()throws Exception{
         app.getBottomBar().clickToChat();
         app.getLoginModals().getFirstStepScreen()
-                .setCursorAndWriteIntoEmailField("a.nesov@synergetica.co").clickToNextBtn()
-                .clickAndTypePassword("OPtvb6gh").clickLoginBtn();
+                .setCursorAndWriteIntoEmailField("a.nesov@synergetica.co")
+                .clickToNextBtn()
+                .clickAndTypePassword("OPtvb6gh")
+                .clickLoginBtn();
     }
 
 
