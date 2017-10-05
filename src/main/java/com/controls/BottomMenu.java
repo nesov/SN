@@ -50,19 +50,19 @@ public class BottomMenu {
         getAppmodeElement().click();
     }
 
-    public WebElement getAppmodeElement() {
+    private WebElement getAppmodeElement() {
         return appmode;
     }
 
-    public WebElement getChatElement() {
+    private WebElement getChatElement() {
         return chat;
     }
 
-    public WebElement getExploreElement() {
+    private WebElement getExploreElement() {
         return explore;
     }
 
-    public WebElement getMailElement() {
+    private WebElement getMailElement() {
         return mail;
     }
 }

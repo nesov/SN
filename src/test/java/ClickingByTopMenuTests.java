@@ -27,7 +27,7 @@ public class ClickingByTopMenuTests extends BaseTest{
     @Override
     public void setUp() {
         super.setUp();
-        driver.get("https://pp.synergy.net");
+        driver.get("https://antiguayello-pp.synergy.net");
     }
 
     @AfterTest
@@ -41,7 +41,7 @@ public class ClickingByTopMenuTests extends BaseTest{
     void test_1() throws InterruptedException {
 
         if (app != null){
-            app.getTopMenu()
+            app.topMenu()
                     .clickToEvents()
                     .clickToLogo()
                     .clickToNews()
@@ -53,37 +53,42 @@ public class ClickingByTopMenuTests extends BaseTest{
     @Title("Откытие дииалога переключния режима приложения")
     @Test
     void test_2()throws InterruptedException {
-        app.getBottomBar().clickToAppMode();
+        app.bottomBar()
+                .clickToAppMode();
         myWait();
         closeModal();
     }
     @Title("Переход в Chat")
     @Test
     void test_3() throws InterruptedException{
-        app.getBottomBar().clickToChat();
+        app.bottomBar()
+                .clickToChat();
         myWait();
         closeModal();
     }
     @Title ("Переход в Mail")
     @Test
     void test_4()throws InterruptedException{
-        app.getBottomBar().clickToMail();
+        app.bottomBar()
+                .clickToMail();
         myWait();
         closeModal();
+
     }
 
     @Title("Переход на Explore")
     @Test
     void test_5(){
-        app.getBottomBar().clickToExplore();
+        app.bottomBar().clickToExplore();
     }
 
     @Title("Поиск по компаниям")
     @Test
     void test_6()throws InterruptedException{
-        app.getTopMenu().clickToCompanies();
-        app.getSearchBar().typeTextIntoSearch("QA Busines");
-
+        app.topMenu()
+                .clickToCompanies();
+        app.searchBar()
+                .typeTextIntoSearch("QA Busines");
         myWait();
     }
 

@@ -4,14 +4,20 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Duration;
+import org.openqa.selenium.support.ui.Sleeper;
 import ru.yandex.qatools.allure.annotations.Step;
+import utils.WaitHelper;
 
-public class LoginModals {
+import java.util.concurrent.TimeUnit;
+
+public class LoginModal {
 
     private WebDriver driver;
-    private LoginModals.FirstStepScreen firstStepScreen;
-    private LoginModals.SecondStepScreen secondStepScreen;
-    public LoginModals(WebDriver driver){
+    private LoginModal.FirstStepScreen firstStepScreen;
+    private LoginModal.SecondStepScreen secondStepScreen;
+
+    public LoginModal(WebDriver driver){
         this.driver = driver;
         firstStepScreen = new FirstStepScreen(driver);
         secondStepScreen = new SecondStepScreen(driver);
@@ -30,7 +36,7 @@ public class LoginModals {
         @FindBy (className = "btnclose")
         private WebElement closeBtn;
 
-        @FindBy (id = "username")
+        @FindBy (xpath = "//*[@id=\"username\"]")
         private WebElement emailInputField;
 
         @FindBy (xpath = "/html/body/app-synergy/dynamic-settings/root-component/signin-modal/div/div/div/div[2]/username-signin/div/div[2]/form/div/div[3]/button")
@@ -65,10 +71,11 @@ public class LoginModals {
 
         @Step("Filling out email address")
         public FirstStepScreen setCursorAndWriteIntoEmailField(String email){
-            try{
-                getEmailInputField().click();
-                getEmailInputField().sendKeys(email);
-                Thread.sleep(2000);
+
+            try {
+                    WaitHelper.waitingForFiveSeconds(driver,getEmailInputField());
+                    getEmailInputField().sendKeys(email);
+
             } catch (Exception ex){
                 ex.printStackTrace();
             }
@@ -77,22 +84,26 @@ public class LoginModals {
 
         @Step
         public FirstStepScreen clickCloseBtn(){
+            WaitHelper.waitingForFiveSeconds(driver,getCloseBtn());
             getCloseBtn().click();
             return this;
         }
 
         @Step ("Cliking to Forgot password bnt")
         public FirstStepScreen clickForgotPasswordLink()throws Exception {
+            WaitHelper.waitingForFiveSeconds(driver,getForgotPasswordBtn());
             getForgotPasswordBtn().click();
             return this;
         }
 
         @Step ("Clicking to Next btn")
-        public SecondStepScreen clickToNextBtn() throws  NullPointerException{
+        public SecondStepScreen clickToNextBtn() throws NullPointerException, InterruptedException {
 
             SecondStepScreen secondStepScreen = new SecondStepScreen(driver);
 
             getSubmitBtn().click();
+
+            Thread.sleep(5000);
 
             if (secondStepScreen != null)
                 return secondStepScreen;
@@ -110,7 +121,7 @@ public class LoginModals {
         @FindBy(xpath = "/html/body/app-synergy/dynamic-settings/root-component/signin-modal/div/div/div/div[1]/a" )
         WebElement closeBtn;
 
-        @FindBy(id = "password")
+        @FindBy(xpath = "//*[@id=\"password\"]")
         WebElement passwordInput;
 
         @FindBy(xpath = "/html/body/app-synergy/dynamic-settings/root-component/signin-modal/div/div/div/div[2]/password-signin/form/div/a")
@@ -158,8 +169,11 @@ public class LoginModals {
 
         @Step ("Ставим курсор в поле ввода и вводим пароль")
         public SecondStepScreen clickAndTypePassword(String password){
-            getPasswordInput().clear();
-            getPasswordInput().sendKeys(password);
+            if (!getPasswordInput().isEnabled()){
+                WaitHelper.waitingForFiveSeconds(driver, getPasswordInput());
+            }
+                getPasswordInput().sendKeys(password);
+
             return this;
         }
 

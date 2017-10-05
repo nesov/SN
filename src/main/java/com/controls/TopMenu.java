@@ -10,7 +10,7 @@ import ru.yandex.qatools.allure.annotations.Step;
  * Created by alexnesov on 21/03/2017.
  */
 
-public class TopMenu{
+public class TopMenu {
 
     private WebDriver driver;
 
@@ -38,37 +38,37 @@ public class TopMenu{
     }
 
     @Step ("Кликаем на логотип")
-    public TopMenu clickToLogo() throws InterruptedException {
+    public TopMenu clickToLogo(){
         logo.click();
         return this;
     }
 
     @Step ("Кликаем на Собития")
-    public TopMenu clickToEvents() throws InterruptedException{
+    public TopMenu clickToEvents() {
         events.click();
         return this;
     }
 
     @Step ("Кликаем на Компании")
-    public TopMenu clickToCompanies() throws InterruptedException {
+    public TopMenu clickToCompanies() {
         companies.click();
         return this;
     }
 
     @Step ("Кликаем на Продукты")
-    public TopMenu clickToProducts()throws InterruptedException{
+    public TopMenu clickToProducts(){
         products.click();
         return this;
     }
 
     @Step ("Кликаем на Людей")
-    public TopMenu clickToPeople() throws InterruptedException {
+    public TopMenu clickToPeople(){
         people.click();
         return this;
     }
 
     @Step ("Кликаем на Новости")
-    public TopMenu clickToNews() throws InterruptedException {
+    public TopMenu clickToNews() {
         news.click();
         return this;
     }

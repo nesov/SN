@@ -9,7 +9,7 @@ public class AuthTests extends BaseTest {
     @Override
     public void setUp(){
         super.setUp();
-        driver.get("https://pp.synergy.net");
+        driver.get("https://antiguayello-pp.synergy.net");
     }
 
     @AfterTest
@@ -24,18 +24,20 @@ public class AuthTests extends BaseTest {
 
         driver.get("https://pp.synergy.net");
 
-        app.getBottomBar().clickToChat();
-
-        app.getLoginModals()
-                .getFirstStepScreen().clickForgotPasswordLink();
+        app.loginModals()
+                .getFirstStepScreen()
+                .clickForgotPasswordLink();
 
 
     }
 
     @Test
     public void happyCaseLogin()throws Exception{
-        app.getBottomBar().clickToChat();
-        app.getLoginModals().getFirstStepScreen()
+        app
+                .bottomBar()
+                .clickToChat();
+        app.loginModals()
+                .getFirstStepScreen()
                 .setCursorAndWriteIntoEmailField("a.nesov@synergetica.co")
                 .clickToNextBtn()
                 .clickAndTypePassword("OPtvb6gh")

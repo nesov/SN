@@ -2,7 +2,7 @@ package app;
 
 import modals.SignUpModal;
 import com.controls.BottomMenu;
-import modals.LoginModals;
+import modals.LoginModal;
 import com.controls.SearchBar;
 import com.controls.TopMenu;
 import org.openqa.selenium.WebDriver;
@@ -14,11 +14,13 @@ import org.openqa.selenium.support.PageFactory;
 
 public class SynergyApp {
 
+
+    private static final String URL ="https://pp.synergy.net";
     private final WebDriver driver;
     private BottomMenu bottomMenu;
     private TopMenu topMenu;
     private SearchBar searchBar;
-    private LoginModals loginModals;
+    private LoginModal loginModal;
     private SignUpModal signUpModal;
 //    private HambMenu hambMenu;
 
@@ -27,29 +29,34 @@ public class SynergyApp {
         this.bottomMenu = new BottomMenu(driver);
         this.topMenu = new TopMenu(driver);
         this.searchBar = new SearchBar(driver);
-        this.loginModals = new LoginModals(driver);
+        this.loginModal = new LoginModal(driver);
         this.signUpModal = new SignUpModal(driver);
 //        this.hambMenu = new HambMenu(driver);
         PageFactory.initElements(driver, this);
     }
 
-    public BottomMenu getBottomBar(){
+    public BottomMenu bottomBar(){
         return bottomMenu;
     }
 
-    public TopMenu getTopMenu(){
+    public TopMenu topMenu(){
         return topMenu;
     }
 
-    public SearchBar getSearchBar() {
+    public SearchBar searchBar() {
         return searchBar;
     }
 
-    public LoginModals getLoginModals() {
-        return loginModals;
+    public LoginModal loginModals() {
+        return loginModal;
     }
 
-    public SignUpModal getSignUpModal() {
+    public SynergyApp open(){
+        driver.get(URL);
+        return this;
+    }
+
+    public SignUpModal signUpModal() {
         return signUpModal;
     }
 }

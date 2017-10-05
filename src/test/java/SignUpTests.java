@@ -24,7 +24,7 @@ public class SignUpTests extends BaseTest{
     @BeforeMethod
     public void setUp(){
         super.setUp();
-        driver.get("https://dev.synergy.net");
+        driver.get("https://antiguayello-pp.synergy.net");
     }
 
     @Override
@@ -37,7 +37,7 @@ public class SignUpTests extends BaseTest{
     @Title("Регистрация нового пользователя")
     public void happySignUpCase() throws Exception{
         openSignUpForm();
-        app.getSignUpModal()
+        app.signUpModal()
                 .fillOutFirstName("USER")
                 .fillOutLastName("AUTOMATED")
                 .fillOutуEmail("automated@cuvox.de")
@@ -50,7 +50,7 @@ public class SignUpTests extends BaseTest{
     @Title("Регистрация пользователя с существющими учетными данными")
     public void registrationOfExistingUser() throws Exception{
         openSignUpForm();
-        app.getSignUpModal()
+        app.signUpModal()
                 .fillOutFirstName("USER")
                 .fillOutLastName("AUTOMATED")
                 .fillOutуEmail("automated@cuvox.de")
@@ -58,6 +58,5 @@ public class SignUpTests extends BaseTest{
                 .agreeWithPrivacyPolicy();
 
     }
-
 
 }
