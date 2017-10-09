@@ -1,11 +1,14 @@
 package modals;
 
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Duration;
 import org.openqa.selenium.support.ui.Sleeper;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import ru.stqa.selenium.factory.WebDriverPool;
 import ru.yandex.qatools.allure.annotations.Step;
 import utils.WaitHelper;
 
@@ -56,15 +59,12 @@ public class LoginModal {
         private WebElement getCloseBtn() {
             return closeBtn;
         }
-
         private WebElement getEmailInputField() {
             return emailInputField;
         }
-
         private WebElement getForgotPasswordBtn() {
             return forgotPasswordBtn;
         }
-
         private WebElement getSubmitBtn() {
             return submitBtn;
         }
@@ -73,10 +73,9 @@ public class LoginModal {
         public FirstStepScreen setCursorAndWriteIntoEmailField(String email){
 
             try {
-                    WaitHelper.waitingForFiveSeconds(driver,getEmailInputField());
+                    WaitHelper.waitingWithPolling(driver,getEmailInputField());
                     getEmailInputField().sendKeys(email);
-
-            } catch (Exception ex){
+                } catch (NoSuchElementException ex){
                 ex.printStackTrace();
             }
             return this;
@@ -84,7 +83,7 @@ public class LoginModal {
 
         @Step
         public FirstStepScreen clickCloseBtn(){
-            WaitHelper.waitingForFiveSeconds(driver,getCloseBtn());
+            WaitHelper.waitingWithPolling(driver, getCloseBtn());
             getCloseBtn().click();
             return this;
         }
@@ -97,16 +96,13 @@ public class LoginModal {
         }
 
         @Step ("Clicking to Next btn")
-        public SecondStepScreen clickToNextBtn() throws NullPointerException, InterruptedException {
-
-            SecondStepScreen secondStepScreen = new SecondStepScreen(driver);
-
-            getSubmitBtn().click();
-
-            Thread.sleep(5000);
-
-            if (secondStepScreen != null)
-                return secondStepScreen;
+        public SecondStepScreen clickToNextBtn() {
+            try {
+                WaitHelper.waitingWithPolling(driver, getSubmitBtn());
+                getSubmitBtn().click();
+                if (secondStepScreen != null)
+                    return secondStepScreen;
+            } catch (NoSuchElementException ex){}
 
             return null;
         }
@@ -134,26 +130,23 @@ public class LoginModal {
             this.driver = driver;
             PageFactory.initElements(driver, this);
         }
-
+        /****************************************/
         public WebElement getCloseBtn() {
             return closeBtn;
         }
-
         public WebElement getBackBtn() {
             return backBtn;
         }
-
         public WebElement getForgotPasswordLink() {
             return forgotPasswordLink;
         }
-
         public WebElement getLoginBtn() {
             return loginBtn;
         }
-
         public WebElement getPasswordInput() {
             return passwordInput;
         }
+        /****************************************/
 
         @Step ("Нажиимаем на кнопку закрытия дилога")
         public SecondStepScreen clickCloseBtn(){
@@ -169,9 +162,7 @@ public class LoginModal {
 
         @Step ("Ставим курсор в поле ввода и вводим пароль")
         public SecondStepScreen clickAndTypePassword(String password){
-            if (!getPasswordInput().isEnabled()){
-                WaitHelper.waitingForFiveSeconds(driver, getPasswordInput());
-            }
+            WaitHelper.waitingWithPolling(driver, getPasswordInput());
                 getPasswordInput().sendKeys(password);
 
             return this;

@@ -5,7 +5,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import ru.yandex.qatools.allure.annotations.Step;
 import utils.WaitHelper;
 
@@ -44,9 +43,7 @@ public class SignUpModal {
             getFinishBtn().click();
         }
 
-    };
-
-    private final int TIMEOUT = 100;
+    }
 
     private WebDriver driver;
 
@@ -81,55 +78,49 @@ public class SignUpModal {
     protected WebElement getCloseBtn() {
         return closeBtn;
     }
-
     protected WebElement getAgreeCheckBx() {
         return agreeCheckBx;
     }
-
     protected WebElement getContinueBtn() {
         return continueBtn;
     }
-
     protected WebElement getEmailField() {
         return email;
     }
-
     protected WebElement getFirstNameField() {
         return firstName;
     }
-
     protected WebElement getLastNameField() {
         return lastName;
     }
-
     protected WebElement getPasswordField() {
         return password;
     }
 
     @Step ("Заполнил имя пользователя")
     public SignUpModal fillOutFirstName(String firstname){
-            WaitHelper.waitingFor(driver,getFirstNameField(),TIMEOUT);
+            WaitHelper.waitingWithPolling(driver, getFirstNameField());
             getFirstNameField().sendKeys(firstname);
         return this;
     }
 
     @Step ("Заполнил фамилию пользователя")
     public SignUpModal fillOutLastName(String lastName){
-            WaitHelper.waitingFor(driver, getFirstNameField(),TIMEOUT);
+            WaitHelper.waitingWithPolling(driver, getFirstNameField());
             getLastNameField().sendKeys(lastName);
         return this;
     }
 
     @Step ("Заполнил имейл пользователя")
     public SignUpModal fillOutуEmail(String email){
-        WaitHelper.waitingFor(driver, getEmailField(),TIMEOUT);
+        WaitHelper.waitingWithPolling(driver, getEmailField());
         getEmailField().sendKeys(email);
         return this;
     }
 
     @Step ("Заполнил пароль пользователя")
     public SignUpModal fillOutPassword(String password){
-        WaitHelper.waitingFor(driver, getPasswordField(),TIMEOUT);
+        WaitHelper.waitingWithPolling(driver, getPasswordField());
         getPasswordField().sendKeys(password);
         return this;
     }
@@ -137,7 +128,7 @@ public class SignUpModal {
     @Step ("Согласился с политикой пользователя")
     public SignUpModal agreeWithPrivacyPolicy() throws  NoSuchElementException{
 
-        WaitHelper.waitingFor(driver,getAgreeCheckBx(),TIMEOUT);
+        WaitHelper.waitingWithPolling(driver,getAgreeCheckBx());
         try {
             if (getAgreeCheckBx().isDisplayed())
                 getAgreeCheckBx().click();
@@ -150,14 +141,14 @@ public class SignUpModal {
 
     @Step ("Клик на кнопрку продолжить")
     public FinalStepModal clickContinueBtn(){
-        WaitHelper.waitingForFiveSeconds(driver,getContinueBtn());
+        WaitHelper.waitingWithPolling(driver,getContinueBtn());
         getContinueBtn().click();
         return new FinalStepModal(driver);
     }
 
     @Step ("Закрыл модалку сайнапа")
     public void closeSignUpModal() throws NoSuchElementException{
-        WaitHelper.waitingForFiveSeconds(driver,getCloseBtn());
+        WaitHelper.waitingWithPolling(driver,getCloseBtn());
         try{
             if(getCloseBtn().isDisplayed())
                 getCloseBtn().click();
@@ -165,6 +156,4 @@ public class SignUpModal {
             ex.printStackTrace();
         }
     }
-
-
 }

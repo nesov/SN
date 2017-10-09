@@ -1,3 +1,4 @@
+import ru.yandex.qatools.allure.annotations.Title;
 import utils.BaseTest;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
@@ -9,7 +10,7 @@ public class AuthTests extends BaseTest {
     @Override
     public void setUp(){
         super.setUp();
-        driver.get("https://antiguayello-pp.synergy.net");
+//        driver.get("https://antiguayello-pp.synergy.net");
     }
 
     @AfterTest
@@ -19,21 +20,11 @@ public class AuthTests extends BaseTest {
     }
 
 
-    @Test
-    public void test_3214() throws Exception {
-
-        driver.get("https://pp.synergy.net");
-
-        app.loginModals()
-                .getFirstStepScreen()
-                .clickForgotPasswordLink();
-
-
-    }
 
     @Test
+    @Title("Успешна авторизация с мастер паролем")
     public void happyCaseLogin()throws Exception{
-        app
+        app.open()
                 .bottomBar()
                 .clickToChat();
         app.loginModals()
@@ -42,6 +33,7 @@ public class AuthTests extends BaseTest {
                 .clickToNextBtn()
                 .clickAndTypePassword("OPtvb6gh")
                 .clickLoginBtn();
+
     }
 
 

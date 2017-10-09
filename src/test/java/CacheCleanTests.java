@@ -1,3 +1,4 @@
+import io.qameta.allure.Flaky;
 import utils.BaseTest;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
@@ -84,8 +85,7 @@ public class CacheCleanTests extends BaseTest {
         super.tearDown();
     }
 
-
-    @Test
+    @Test(enabled = false)
     @Description("Clearing prod caches")
     public void clearProductionInstancesCaches(){
         passThroughAllTheIntances(PROD_INSTANCES);
