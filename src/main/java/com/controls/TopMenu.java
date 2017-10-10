@@ -1,5 +1,6 @@
 package com.controls;
 
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -37,16 +38,45 @@ public class TopMenu {
         PageFactory.initElements(driver, this);
     }
 
+    public WebElement getCompanies() {
+        return companies;
+    }
+    public WebElement getEvents() {
+        return events;
+    }
+    public WebElement getLogo() {
+        return logo;
+    }
+    public WebElement getNews() {
+        return news;
+    }
+    public WebElement getPeople() {
+        return people;
+    }
+    public WebElement getProducts() {
+        return products;
+    }
+
     @Step ("Кликаем на логотип")
     public TopMenu clickToLogo(){
-        logo.click();
-        return this;
+        try{
+            logo.click();
+            return this;
+        } catch (NoSuchElementException ex){
+            ex.printStackTrace();
+        }
+        return null;
     }
 
     @Step ("Кликаем на Собития")
     public TopMenu clickToEvents() {
-        events.click();
-        return this;
+        try {
+            events.click();
+            return this;
+        } catch (NoSuchElementException ex){
+            ex.printStackTrace();
+        }
+        return null;
     }
 
     @Step ("Кликаем на Компании")

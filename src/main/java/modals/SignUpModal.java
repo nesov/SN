@@ -75,25 +75,25 @@ public class SignUpModal {
         PageFactory.initElements(driver, this);
     }
 
-    protected WebElement getCloseBtn() {
+    public WebElement getCloseBtn() {
         return closeBtn;
     }
-    protected WebElement getAgreeCheckBx() {
+    public WebElement getAgreeCheckBx() {
         return agreeCheckBx;
     }
-    protected WebElement getContinueBtn() {
+    public WebElement getContinueBtn() {
         return continueBtn;
     }
-    protected WebElement getEmailField() {
+    public WebElement getEmailField() {
         return email;
     }
-    protected WebElement getFirstNameField() {
+    public WebElement getFirstNameField() {
         return firstName;
     }
-    protected WebElement getLastNameField() {
+    public WebElement getLastNameField() {
         return lastName;
     }
-    protected WebElement getPasswordField() {
+    public WebElement getPasswordField() {
         return password;
     }
 

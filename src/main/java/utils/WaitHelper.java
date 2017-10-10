@@ -17,7 +17,7 @@ public abstract class WaitHelper {
     }
 
     public static void waitingWithPolling(WebDriver driver, WebElement webElement){
-        WebDriverWait wait = new WebDriverWait (driver,1,300);
+        WebDriverWait wait = new WebDriverWait (driver,10,1000);
         wait.until(ExpectedConditions.visibilityOf(webElement));
 
     }

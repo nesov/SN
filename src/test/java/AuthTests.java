@@ -1,3 +1,4 @@
+import org.testng.Assert;
 import ru.yandex.qatools.allure.annotations.Title;
 import utils.BaseTest;
 import org.testng.annotations.AfterTest;
@@ -34,8 +35,24 @@ public class AuthTests extends BaseTest {
                 .clickAndTypePassword("OPtvb6gh")
                 .clickLoginBtn();
 
+        Assert.assertTrue(true);
     }
 
+    @Test
+    @Title ("Авторизация с несуществующим имейлом")
+    public void wrongEmailAuth(){
+        app.open()
+                .bottomBar()
+                .clickToMail();
+
+        Assert.assertNotNull(app.loginModals().getFirstStepScreen());
+        Assert.assertTrue(app.loginModals().getFirstStepScreen().isLoginModalShown());
+        app.loginModals()
+                .getFirstStepScreen()
+                .setCursorAndWriteIntoEmailField("unexisting-email@cuvox.de")
+                .clickToNextBtn();
+        Assert.assertFalse(false);
+    }
 
 
 

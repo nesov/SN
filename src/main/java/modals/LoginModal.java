@@ -1,5 +1,6 @@
 package modals;
 
+import com.sun.jna.platform.win32.WinDef;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -56,17 +57,25 @@ public class LoginModal {
             PageFactory.initElements(driver, this);
         }
 
-        private WebElement getCloseBtn() {
+        public WebElement getCloseBtn() {
             return closeBtn;
         }
-        private WebElement getEmailInputField() {
+        public WebElement getEmailInputField() {
             return emailInputField;
         }
-        private WebElement getForgotPasswordBtn() {
+        public WebElement getForgotPasswordBtn() {
             return forgotPasswordBtn;
         }
-        private WebElement getSubmitBtn() {
+        public WebElement getSubmitBtn() {
             return submitBtn;
+        }
+
+        public boolean isLoginModalShown(){
+
+                if (closeBtn.isDisplayed() & emailInputField.isDisplayed() & submitBtn.isDisplayed() & forgotPasswordBtn.isDisplayed())
+                    return true;
+                else
+                    return false;
         }
 
         @Step("Filling out email address")
