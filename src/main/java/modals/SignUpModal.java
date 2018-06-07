@@ -49,6 +49,7 @@ public class SignUpModal {
 
     private SignUpModal.FinalStepModal finalStepModal;
 
+
     @FindBy (id = "firstName")
     private WebElement firstName;
 

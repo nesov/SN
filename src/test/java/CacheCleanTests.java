@@ -1,4 +1,3 @@
-import io.qameta.allure.Flaky;
 import utils.BaseTest;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
