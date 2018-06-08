@@ -15,7 +15,7 @@ import org.openqa.selenium.support.PageFactory;
 public class SynergyApp {
 
 
-    private static final String URL ="https://pp.synergy.net";
+    private static final String URL ="https://synergy.net";
     private final WebDriver driver;
     private BottomMenu bottomMenu;
     private TopMenu topMenu;

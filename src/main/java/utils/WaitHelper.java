@@ -1,5 +1,6 @@
 package utils;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -19,6 +20,11 @@ public abstract class WaitHelper {
     public static void waitingWithPolling(WebDriver driver, WebElement webElement){
         WebDriverWait wait = new WebDriverWait (driver,10,1000);
         wait.until(ExpectedConditions.visibilityOf(webElement));
+
+    }
+
+    public static void waitUntilDocumentReadyState(){
+        JavascriptExecutor executor = new JavascriptExecutor();
 
     }
 

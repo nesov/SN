@@ -14,16 +14,19 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Maven: org.seleniumhq.selenium:selenium-support:3.5.3" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: io.qameta.allure:allure-testng:2.0-BETA18" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: io.qameta.allure:allure-descriptions-javadoc:2.0-BETA18" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: io.qameta.allure:allure-java-commons:2.0-BETA18" level="project" />
     <orderEntry type="library" name="Maven: org.testng:testng:6.8" level="project" />
     <orderEntry type="library" name="Maven: junit:junit:4.10" level="project" />
     <orderEntry type="library" name="Maven: org.hamcrest:hamcrest-core:1.1" level="project" />
     <orderEntry type="library" name="Maven: org.beanshell:bsh:2.0b4" level="project" />
     <orderEntry type="library" name="Maven: com.beust:jcommander:1.27" level="project" />
     <orderEntry type="library" name="Maven: org.yaml:snakeyaml:1.6" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: io.qameta.allure:allure-testng:2.0-BETA18" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: io.qameta.allure:allure-descriptions-javadoc:2.0-BETA18" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: io.qameta.allure:allure-testng:2.6.0" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: io.qameta.allure:allure-descriptions-javadoc:2.6.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: commons-io:commons-io:2.5" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: io.qameta.allure:allure-java-commons:2.0-BETA18" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: io.qameta.allure:allure-java-commons:2.6.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: io.qameta.allure:allure2-model-api:1.0-BETA6" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: io.qameta.allure:allure2-model-pojo:1.0-BETA6" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: io.qameta.allure:allure2-model-jackson:1.0-BETA6" level="project" />

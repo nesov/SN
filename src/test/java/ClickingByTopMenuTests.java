@@ -27,7 +27,7 @@ public class ClickingByTopMenuTests extends BaseTest{
     @Override
     public void setUp() {
         super.setUp();
-        driver.get("https://antiguayello-pp.synergy.net");
+        driver.get("https://synergy.net");
     }
 
     @AfterTest
