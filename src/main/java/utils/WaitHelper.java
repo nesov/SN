@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public abstract class WaitHelper {
+public abstract class WaitHelper{
     public static void waitingForFiveSeconds(WebDriver driver, WebElement webElement){
         WebDriverWait wait = new WebDriverWait(driver,5);
         wait.until(ExpectedConditions.visibilityOf(webElement));
@@ -18,14 +18,14 @@ public abstract class WaitHelper {
     }
 
     public static void waitingWithPolling(WebDriver driver, WebElement webElement){
-        WebDriverWait wait = new WebDriverWait (driver,10,1000);
+        WebDriverWait wait = new WebDriverWait (driver,5,1000);
         wait.until(ExpectedConditions.visibilityOf(webElement));
 
     }
 
-    public static void waitUntilDocumentReadyState(){
-        JavascriptExecutor executor = new JavascriptExecutor();
-
-    }
+//    public static void waitUntilDocumentReadyState(){
+//        JavascriptExecutor executor = new JavascriptExecutor();
+//
+//    }
 
 }
