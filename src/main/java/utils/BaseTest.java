@@ -26,12 +26,14 @@ import java.util.concurrent.TimeUnit;
 //        System.setProperty("webdriver.chrome.driver","drivers/chromedriver232");
         System.setProperty("webdriver.chrome.driver","drivers/chromedriver240");
         driver = WebDriverPool.DEFAULT.getDriver(DesiredCapabilities.chrome());
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+//        driver.manage().window().fullscreen();
         app = PageFactory.initElements(driver, SynergyApp.class);
     }
 
     public void tearDown(){
-        WebDriverPool.DEFAULT.dismissAll();
+        WebDriverPool.DEFAULT.dismissDriver(driver);
+//        WebDriverPool.DEFAULT.dismissAll();
     }
 }
 
