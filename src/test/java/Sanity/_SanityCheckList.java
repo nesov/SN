@@ -35,6 +35,75 @@ public class _SanityCheckList extends BaseTest{
         this.getToDomain();
     }
 
+    @Test
+    void signUp() throws InterruptedException{
+        openSite();
+        WebElement sandvich = driver.findElement(By.className("ng2-dropdown-container"));
+
+        if(sandvich.isDisplayed()) {
+            sandvich.click();
+            Assert.assertTrue(true, sandvich.getText()+" is displayed and clicable");
+        }else {Assert.assertTrue(false,sandvich.getText()+" is not displayed");}
+
+        WebElement singUpitem = driver.findElement(By.xpath("/html/body/app-synergy/dynamic-settings/root-component/header/div/div[1]/div/div[2]/ng2-dropdown/div/ng2-dropdown-menu/div[1]/div/div/ng2-menu-item[2]/div"));
+        WaitHelper.waitingWithPolling(driver, singUpitem);
+        if(singUpitem.isDisplayed()) {
+            singUpitem.click();
+            Assert.assertTrue(true, "Login item is displayed and clicable");
+        }else {Assert.assertTrue(false,"Login item is not displayed");}
+
+        WebElement firstname , lastname, email, password,checkBox;
+        firstname = driver.findElement(By.xpath("//*[@id=\"firstName\"]"));
+        lastname = driver.findElement(By.xpath("//*[@id=\"lastName\"]"));
+        email = driver.findElement(By.xpath("//*[@id=\"email\"]"));
+        password = driver.findElement(By.xpath("//*[@id=\"password\"]"));
+
+        checkBox = driver.findElement(By.className("mat-checkbox-layout"));
+        WaitHelper.waitingWithPolling(driver,firstname);
+        if(firstname.isDisplayed()){
+            firstname.click();
+            firstname.sendKeys("Roman");
+            Assert.assertTrue(true, "chat item found and clicked");
+        }
+        WaitHelper.waitingWithPolling(driver,lastname);
+        if(lastname.isDisplayed()){
+            lastname.click();
+            lastname.sendKeys("Nickson");
+            Assert.assertTrue(true, "chat item found and clicked");
+        }
+        WaitHelper.waitingWithPolling(driver,email);
+        if(email.isDisplayed()){
+            email.click();
+            email.sendKeys("syn.qa.dept+321432@gmail.com");
+            Assert.assertTrue(true, "chat item found and clicked");
+        }
+        WaitHelper.waitingWithPolling(driver,password);
+        if(password.isDisplayed()){
+            password.click();
+            password.sendKeys("synqadeptgmailcom1123");
+            Assert.assertTrue(true, "chat item found and clicked");
+        }
+        WaitHelper.waitingWithPolling(driver,checkBox);
+        if(checkBox.isDisplayed()){
+            checkBox.click();
+        }
+        Thread.sleep(2000);
+
+        WebElement submitbtn= driver.findElement(By.xpath("/html/body/app-synergy/dynamic-settings/root-component/signin-modal/div/div/div/div[2]/signup-signin/div[2]/form/div/div/div[11]/button"));
+        WaitHelper.waitingWithPolling(driver,submitbtn);
+
+        if(submitbtn.isDisplayed())
+            submitbtn.click();
+
+        WebElement finishBtn = driver.findElement(By.xpath("/html/body/app-synergy/dynamic-settings/root-component/signin-modal/div/div/div/div[2]/final-signin/div/form/div/div[3]/button"));
+
+        WaitHelper.waitingWithPolling(driver,finishBtn);
+
+        if(finishBtn.isDisplayed())
+            finishBtn.click();
+
+    }
+
 
     @Test (priority = 1)
     void openLoginModal(){
@@ -54,6 +123,7 @@ public class _SanityCheckList extends BaseTest{
 
 
     }
+
 
     @Test(priority = 4)
     void logInAs_CM() throws InterruptedException {
