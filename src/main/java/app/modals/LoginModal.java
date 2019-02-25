@@ -1,19 +1,12 @@
-package modals;
+package app.modals;
 
-import com.sun.jna.platform.win32.WinDef;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.Duration;
-import org.openqa.selenium.support.ui.Sleeper;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import ru.stqa.selenium.factory.WebDriverPool;
 import ru.yandex.qatools.allure.annotations.Step;
 import utils.WaitHelper;
-
-import java.util.concurrent.TimeUnit;
 
 public class LoginModal {
 

@@ -24,9 +24,18 @@ public abstract class WaitHelper{
 
     }
 
+
+    public static void waitingFor1(WebDriver driver,WebElement webElement, int timeOutInseconds){
+        WebDriverWait wait = new WebDriverWait(driver, timeOutInseconds);
+            wait.until(ExpectedConditions.visibilityOf(webElement));
+        };
+
+
+    }
+
 //    public static void waitUntilDocumentReadyState(){
 //        JavascriptExecutor executor = new JavascriptExecutor();
 //
 //    }
 
-}
+

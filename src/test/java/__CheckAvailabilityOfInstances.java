@@ -1,39 +1,50 @@
+import org.openqa.selenium.logging.LogEntries;
+import org.openqa.selenium.logging.LogEntry;
+import org.openqa.selenium.logging.LogType;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import ru.yandex.qatools.allure.annotations.Description;
 import utils.BaseTest;
 
+
+
 public class __CheckAvailabilityOfInstances extends BaseTest{
 //    private static final String PREFIX ="pp00";
-    private static final String PREFIX ="pp01";
+    private static final String PREFIX ="pp00";
 //    private static final String PREFIX ="pp02";
 
 
     private static final String [] PROD_INSTANCES = {
+            "https://lawpower.com",
+            "https://www.thepharmacyatbergheim.com",
+            "http://www.synergetica.co",
+            "https://shemesh.co.il",
+            "https://frostburgcity.org",
+            "http://www.biokon.com.ua",
+            "https://viola.synergy.net",
+            "https://siinda.synergy.net",
+            "https://libertytax.synergy.net",
+            "https://wilcodata.synergy.net",
+            "https://envisacarerx.synergy.net",
+            "https://premierpharmacysa.synergy.net",
+            "https://alsma.synergy.net",
             "https://ukrcemfor.synergy.net",
             "https://localknowledge.synergy.net",
             "https://digitalfestival.synergy.net",
             "https://shift.synergy.net",
-
             "https://testingstage.synergy.net",
             "https://item.synergy.net",
             "https://gdpr.synergy.net",
             "https://ruby.synergy.net",
-
             "https://lts.synergy.net",
-            "https://synergy.net",
             "https://lsa.synergy.net",
             "https://vendasta.synergy.net",
-
             "http://antiguayello.com",
             "https://localcomm.synergy.net",
             "https://tompkins.synergy.net",
-            "http://www.synergetica.co",
-
-            "https://shemesh.synergy.net",
             "https://adp.synergy.net",
-            "https://mhi.synergy.net",
+            "https://mhi.synergy.net"
     };
 
     private static final String [] PRE_PROD_INTANCES = {
@@ -62,14 +73,32 @@ public class __CheckAvailabilityOfInstances extends BaseTest{
             "https://"+PREFIX+"-antiguayello.com"
 
     };
+    public void analyzeLog(String i){
+        LogEntries logEntries = driver.manage().logs().get(LogType.BROWSER);
+        for(LogEntry entry : logEntries) {
+            if (entry.toString().contains("Rendered from Cache!") || logEntries.toString().contains("Rendered by Server!")){
+                System.out.println(i.toString() + " - Rendering OK");
+            }
 
-    public void passThroughAllTheIntances(String [] instance) throws ArrayIndexOutOfBoundsException {
+            if (entry.toString().contains("Rendered by Client!")){
+                System.out.println(i.toString() + " - Rendering DOES NOT WORK");
+            }
+        }
+
+    }
+
+
+    public void passThroughAllTheIntances(String[] instance)  {
+
         try {
             for (int i = 0; i <= instance.length; i++) {
                 driver.get(instance[i]);
-                System.out.println(instance[i].toString());
+                analyzeLog(instance[i].toString());
             }
-        } catch (Exception ex){}
+        } catch (ArrayIndexOutOfBoundsException ex){
+            ex.printStackTrace();
+        }
+
 
         System.out.println("DONE...");
     }
@@ -79,11 +108,11 @@ public class __CheckAvailabilityOfInstances extends BaseTest{
     @Override
     public void setUp(){
         super.setUp();
-    }
+        }
 
     @AfterTest
     @Override
-    public void tearDown(){
+    public void tearDown() {
         super.tearDown();
     }
 
@@ -94,11 +123,10 @@ public class __CheckAvailabilityOfInstances extends BaseTest{
 //    }
 
     @Test
-    @Description("Checking availability")
+    @Description("Checking availability and Server Renderin")
     void checkingAvailability(){
         passThroughAllTheIntances(PROD_INSTANCES);
     }
 
-    @Test
-    void getting(){}
 }
+

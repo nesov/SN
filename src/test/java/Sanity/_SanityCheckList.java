@@ -1,15 +1,18 @@
 package Sanity;
 
+import io.qameta.allure.Feature;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.AfterSuite;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 import utils.BaseTest;
 import utils.WaitHelper;
 
 public class _SanityCheckList extends BaseTest{
+
 
 
     @BeforeSuite
@@ -24,12 +27,17 @@ public class _SanityCheckList extends BaseTest{
         super.tearDown();
     }
 
+    @AfterTest
+    void getLogs(){
+        driver.manage().logs();
+    }
+
     void getToDomain(){
         driver.get("https://synergy.net");
         Assert.assertTrue(true);
     }
 
-
+    @Feature("Open instance")
     @Test (priority = 0)
     void openSite(){
         this.getToDomain();
@@ -62,25 +70,25 @@ public class _SanityCheckList extends BaseTest{
         WaitHelper.waitingWithPolling(driver,firstname);
         if(firstname.isDisplayed()){
             firstname.click();
-            firstname.sendKeys("Roman");
+            firstname.sendKeys("Rick");
             Assert.assertTrue(true, "chat item found and clicked");
         }
         WaitHelper.waitingWithPolling(driver,lastname);
         if(lastname.isDisplayed()){
             lastname.click();
-            lastname.sendKeys("Nickson");
+            lastname.sendKeys("Morrison");
             Assert.assertTrue(true, "chat item found and clicked");
         }
         WaitHelper.waitingWithPolling(driver,email);
         if(email.isDisplayed()){
             email.click();
-            email.sendKeys("syn.qa.dept+321432@gmail.com");
+            email.sendKeys("syn.qa.dept+3214321@gmail.com");
             Assert.assertTrue(true, "chat item found and clicked");
         }
         WaitHelper.waitingWithPolling(driver,password);
         if(password.isDisplayed()){
             password.click();
-            password.sendKeys("synqadeptgmailcom1123");
+            password.sendKeys("synqadeptgmailcom11233");
             Assert.assertTrue(true, "chat item found and clicked");
         }
         WaitHelper.waitingWithPolling(driver,checkBox);

@@ -1,12 +1,15 @@
 package app;
 
-import modals.SignUpModal;
-import com.controls.BottomMenu;
-import modals.LoginModal;
-import com.controls.SearchBar;
-import com.controls.TopMenu;
+import app.modals.SignUpModal;
+import app.controls.BottomMenu;
+import app.modals.LoginModal;
+import app.controls.SearchBar;
+import app.controls.TopMenu;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
+
+import java.lang.reflect.Method;
 
 /**
  * Created by alexnesov on 27/03/2017.
@@ -16,23 +19,33 @@ public class SynergyApp {
 
 
     private static final String URL ="https://synergy.net";
-    private final WebDriver driver;
+    //private final WebDriver driver;
     private BottomMenu bottomMenu;
     private TopMenu topMenu;
     private SearchBar searchBar;
     private LoginModal loginModal;
     private SignUpModal signUpModal;
+    private Class AuthTests;
+
 //    private HambMenu hambMenu;
 
     public SynergyApp(WebDriver driver){
-        this.driver = driver;
+  //      this.driver = driver;
         this.bottomMenu = new BottomMenu(driver);
         this.topMenu = new TopMenu(driver);
         this.searchBar = new SearchBar(driver);
         this.loginModal = new LoginModal(driver);
         this.signUpModal = new SignUpModal(driver);
+
 //        this.hambMenu = new HambMenu(driver);
         PageFactory.initElements(driver, this);
+    }
+
+    SynergyApp(){
+    }
+
+    public Class getAuthTests() {
+        return AuthTests;
     }
 
     public BottomMenu bottomBar(){
@@ -52,11 +65,22 @@ public class SynergyApp {
     }
 
     public SynergyApp open(){
-        driver.get(URL);
+ //       driver.get(URL);
         return this;
     }
 
     public SignUpModal signUpModal() {
         return signUpModal;
     }
+
+//    public static void main(String[] args) {
+//
+////        WebDriver driver = new ChromeDriver();
+//        SynergyApp app = new SynergyApp();
+//        Method[] tests = AuthTests.getMethods();
+//
+//        for(Method i : tests)
+//            System.out.println(tests);
+//
+//    }
 }

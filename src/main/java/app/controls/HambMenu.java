@@ -1,6 +1,4 @@
-package com.controls;
-
-import org.openqa.selenium.WebDriver;
+package app.controls;
 
 /**
  * Created by alexnesov on 24/03/2017.
