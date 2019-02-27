@@ -26,7 +26,7 @@ import java.util.logging.Level;
     public  void setUp() {
 
 ////        System.setProperty("webdriver.chrome.driver","drivers/chromedriver232");
-////                System.setProperty("webdriver.chrome.driver","drivers/chromedriver240");
+////         System.setProperty("webdriver.chrome.driver","drivers/chromedriver240");
 ////
 ////
 ////
@@ -36,7 +36,7 @@ import java.util.logging.Level;
 //        driver.manage().window().fullscreen();
         DesiredCapabilities caps = DesiredCapabilities.chrome();
         LoggingPreferences logPrefs = new LoggingPreferences();
-        logPrefs.enable(LogType.BROWSER, Level.INFO);
+        logPrefs.enable(LogType.BROWSER, Level.ALL);
         caps.setCapability(CapabilityType.LOGGING_PREFS, logPrefs);
         driver = new ChromeDriver(caps);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);

@@ -1,3 +1,5 @@
+package Sanity;
+
 import org.openqa.selenium.logging.LogEntries;
 import org.openqa.selenium.logging.LogEntry;
 import org.openqa.selenium.logging.LogType;
@@ -10,9 +12,8 @@ import utils.BaseTest;
 
 
 public class __CheckAvailabilityOfInstances extends BaseTest{
-//    private static final String PREFIX ="pp00";
     private static final String PREFIX ="pp00";
-//    private static final String PREFIX ="pp02";
+//    private static final String PREFIX ="pp07";
 
 
     private static final String [] PROD_INSTANCES = {
@@ -87,18 +88,16 @@ public class __CheckAvailabilityOfInstances extends BaseTest{
 
     }
 
-
     public void passThroughAllTheIntances(String[] instance)  {
 
         try {
             for (int i = 0; i <= instance.length; i++) {
                 driver.get(instance[i]);
-                analyzeLog(instance[i].toString());
+                analyzeLog(instance[i]);
             }
         } catch (ArrayIndexOutOfBoundsException ex){
-            ex.printStackTrace();
+//            ex.printStackTrace();
         }
-
 
         System.out.println("DONE...");
     }
@@ -116,14 +115,8 @@ public class __CheckAvailabilityOfInstances extends BaseTest{
         super.tearDown();
     }
 
-//    @Test(enabled = false)
-//    @Description("prod")
-//    public void clearProductionInstancesCaches(){
-//        passThroughAllTheIntances(PROD_INSTANCES);
-//    }
-
     @Test
-    @Description("Checking availability and Server Renderin")
+    @Description("Checking availability and Server Rendering")
     void checkingAvailability(){
         passThroughAllTheIntances(PROD_INSTANCES);
     }

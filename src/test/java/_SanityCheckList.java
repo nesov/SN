@@ -1,5 +1,3 @@
-package Sanity;
-
 import io.qameta.allure.Feature;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;

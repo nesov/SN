@@ -6,10 +6,8 @@ import app.modals.LoginModal;
 import app.controls.SearchBar;
 import app.controls.TopMenu;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
 
-import java.lang.reflect.Method;
 
 /**
  * Created by alexnesov on 27/03/2017.
@@ -25,7 +23,6 @@ public class SynergyApp {
     private SearchBar searchBar;
     private LoginModal loginModal;
     private SignUpModal signUpModal;
-    private Class AuthTests;
 
 //    private HambMenu hambMenu;
 
@@ -44,9 +41,6 @@ public class SynergyApp {
     SynergyApp(){
     }
 
-    public Class getAuthTests() {
-        return AuthTests;
-    }
 
     public BottomMenu bottomBar(){
         return bottomMenu;
