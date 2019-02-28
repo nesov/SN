@@ -78,11 +78,11 @@ public class __CheckAvailabilityOfInstances extends BaseTest{
         LogEntries logEntries = driver.manage().logs().get(LogType.BROWSER);
         for(LogEntry entry : logEntries) {
             if (entry.toString().contains("Rendered from Cache!") || logEntries.toString().contains("Rendered by Server!")){
-                System.out.println(i.toString() + " - Rendering OK");
+                System.out.println(entry + "\n" + " - Rendering OK");
             }
 
             if (entry.toString().contains("Rendered by Client!")){
-                System.out.println(i.toString() + " - Rendering DOES NOT WORK");
+                System.out.println(entry + "\n" + " - Rendering DOES NOT WORK");
             }
         }
 
@@ -120,6 +120,7 @@ public class __CheckAvailabilityOfInstances extends BaseTest{
     void checkingAvailability(){
         passThroughAllTheIntances(PROD_INSTANCES);
     }
+
 
 }
 

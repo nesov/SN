@@ -8,7 +8,6 @@ import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.WebDriver;
-import ru.stqa.selenium.factory.WebDriverPool;
 
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
@@ -39,6 +38,7 @@ import java.util.logging.Level;
         logPrefs.enable(LogType.BROWSER, Level.ALL);
         caps.setCapability(CapabilityType.LOGGING_PREFS, logPrefs);
         driver = new ChromeDriver(caps);
+//        driver = WebDriverPool.DEFAULT.getDriver(DesiredCapabilities.chrome());
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
 
