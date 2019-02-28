@@ -7,6 +7,9 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import ru.yandex.qatools.allure.annotations.Description;
+import ru.yandex.qatools.allure.annotations.Severity;
+import ru.yandex.qatools.allure.annotations.Step;
+import ru.yandex.qatools.allure.model.SeverityLevel;
 import utils.BaseTest;
 
 
@@ -74,15 +77,17 @@ public class __CheckAvailabilityOfInstances extends BaseTest{
             "https://"+PREFIX+"-antiguayello.com"
 
     };
+
+    @Step ("Reading logs")
     public void analyzeLog(String i){
         LogEntries logEntries = driver.manage().logs().get(LogType.BROWSER);
         for(LogEntry entry : logEntries) {
             if (entry.toString().contains("Rendered from Cache!") || logEntries.toString().contains("Rendered by Server!")){
-                System.out.println(entry + "\n" + " - Rendering OK");
+                System.out.println(entry  + " - Rendering OK");
             }
 
             if (entry.toString().contains("Rendered by Client!")){
-                System.out.println(entry + "\n" + " - Rendering DOES NOT WORK");
+                System.out.println(entry + " - Rendering DOES NOT WORK");
             }
         }
 
@@ -116,6 +121,7 @@ public class __CheckAvailabilityOfInstances extends BaseTest{
     }
 
     @Test
+    @Severity(SeverityLevel.BLOCKER)
     @Description("Checking availability and Server Rendering")
     void checkingAvailability(){
         passThroughAllTheIntances(PROD_INSTANCES);

@@ -1,4 +1,4 @@
-import io.qameta.allure.Feature;
+//import io.qameta.allure.Feature;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
@@ -35,7 +35,7 @@ public class _SanityCheckList extends BaseTest{
         Assert.assertTrue(true);
     }
 
-    @Feature("Open instance")
+//    @Feature("Open instance")
     @Test (priority = 0)
     void openSite(){
         this.getToDomain();

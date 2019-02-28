@@ -2,6 +2,7 @@ package utils;
 
 import app.SynergyApp;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.logging.LogType;
 import org.openqa.selenium.logging.LoggingPreferences;
 import org.openqa.selenium.remote.CapabilityType;
@@ -9,6 +10,8 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.WebDriver;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 
@@ -23,27 +26,40 @@ import java.util.logging.Level;
     public SynergyApp app;
 
     public  void setUp() {
-
-////        System.setProperty("webdriver.chrome.driver","drivers/chromedriver232");
-////         System.setProperty("webdriver.chrome.driver","drivers/chromedriver240");
-////
-////
-////
         System.setProperty("webdriver.chrome.driver","drivers/chromedriver240");
-//        driver = WebDriverPool.DEFAULT.getDriver(DesiredCapabilities.chrome());
 
-//        driver.manage().window().fullscreen();
         DesiredCapabilities caps = DesiredCapabilities.chrome();
         LoggingPreferences logPrefs = new LoggingPreferences();
         logPrefs.enable(LogType.BROWSER, Level.ALL);
         caps.setCapability(CapabilityType.LOGGING_PREFS, logPrefs);
         driver = new ChromeDriver(caps);
-//        driver = WebDriverPool.DEFAULT.getDriver(DesiredCapabilities.chrome());
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(5L, TimeUnit.SECONDS);
 
 
-        app = PageFactory.initElements(driver, SynergyApp.class);
+//        app = PageFactory.initElements(driver, SynergyApp.class);
+    }
 
+
+    public void setUp1(){
+        System.setProperty("webdriver.chrome.driver","drivers/chromedriver240");
+
+        LoggingPreferences logPrefs = new LoggingPreferences();
+        logPrefs.enable(LogType.BROWSER, Level.ALL);
+
+        Map<String, Object> deviceMetrics = new HashMap<>();
+        deviceMetrics.put("width", 360);
+        deviceMetrics.put("height", 640);
+        deviceMetrics.put("pixelRatio", 3.0);
+
+        Map<String, Object> mobileEmulation = new HashMap<>();
+        mobileEmulation.put("deviceMetrics", deviceMetrics);
+        mobileEmulation.put("userAgent", "Mozilla/5.0 (Linux; Android 4.2.1; en-us; Nexus 5 Build/JOP40D) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166 Mobile Safari/535.19");
+
+        ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.setExperimentalOption("mobileEmulation", mobileEmulation);
+        chromeOptions.setCapability(CapabilityType.LOGGING_PREFS, logPrefs);
+
+        driver = new ChromeDriver(chromeOptions);
 
     }
 
