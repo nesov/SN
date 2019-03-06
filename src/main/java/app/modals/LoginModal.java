@@ -5,7 +5,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import ru.yandex.qatools.allure.annotations.Step;
 import utils.WaitHelper;
 
 public class LoginModal {
@@ -71,7 +70,6 @@ public class LoginModal {
                     return false;
         }
 
-        @Step("Filling out email address")
         public FirstStepScreen setCursorAndWriteIntoEmailField(String email){
 
             try {
@@ -83,21 +81,18 @@ public class LoginModal {
             return this;
         }
 
-        @Step
         public FirstStepScreen clickCloseBtn(){
             WaitHelper.waitingWithPolling(driver, getCloseBtn());
             getCloseBtn().click();
             return this;
         }
 
-        @Step ("Cliking to Forgot password bnt")
         public FirstStepScreen clickForgotPasswordLink()throws Exception {
             WaitHelper.waitingForFiveSeconds(driver,getForgotPasswordBtn());
             getForgotPasswordBtn().click();
             return this;
         }
 
-        @Step ("Clicking to Next btn")
         public SecondStepScreen clickToNextBtn() {
             try {
                 WaitHelper.waitingWithPolling(driver, getSubmitBtn());
@@ -150,19 +145,16 @@ public class LoginModal {
         }
         /****************************************/
 
-        @Step ("Нажиимаем на кнопку закрытия дилога")
         public SecondStepScreen clickCloseBtn(){
             getCloseBtn().click();
             return this;
         }
 
-        @Step ("Нажимаем накнопку логина")
         public SecondStepScreen clickLoginBtn(){
             getLoginBtn().click();
             return this;
         }
 
-        @Step ("Ставим курсор в поле ввода и вводим пароль")
         public SecondStepScreen clickAndTypePassword(String password){
             WaitHelper.waitingWithPolling(driver, getPasswordInput());
                 getPasswordInput().sendKeys(password);
@@ -170,13 +162,12 @@ public class LoginModal {
             return this;
         }
 
-        @Step ("Кликаем по ссылке сброса пароля")
+
         public SecondStepScreen clickForgotPasswordLink(){
             getForgotPasswordLink().click();
             return this;
         }
 
-        @Step ("Нажимаем кнопку назад")
         public FirstStepScreen clickBackBtn(){
             getBackBtn().click();
             FirstStepScreen firstStepScreen = new FirstStepScreen(driver);

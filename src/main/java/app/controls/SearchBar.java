@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import ru.yandex.qatools.allure.annotations.Step;
+//import ru.yandex.qatools.allure.annotations.Step;
 
 /**
  * Created by alexnesov on 27/03/2017.
@@ -27,14 +27,14 @@ public class SearchBar {
     @FindBy (xpath = "")
     private WebElement modeIcon;
 
-    @Step ("Вводим строку запроса в поле поиска")
+//    @Step ("Вводим строку запроса в поле поиска")
     public void typeTextIntoSearch(String text){
         searchInput.clear();
         searchInput.sendKeys(text);
         searchInput.click();
     }
 
-    @Step ("Кликаем на кнопку переключения режима просмотра")
+//    @Step ("Кликаем на кнопку переключения режима просмотра")
     public void clickToViewModeIcon(){
         modeIcon.click();
     }

@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import ru.yandex.qatools.allure.annotations.Step;
+//import ru.yandex.qatools.allure.annotations.Step;
 
 /**
  * Created by alexnesov on 21/03/2017.
@@ -57,7 +57,7 @@ public class TopMenu {
         return products;
     }
 
-    @Step ("Кликаем на логотип")
+//    @Step ("Кликаем на логотип")
     public TopMenu clickToLogo(){
         try{
             logo.click();
@@ -68,7 +68,7 @@ public class TopMenu {
         return null;
     }
 
-    @Step ("Кликаем на Собития")
+//    @Step ("Кликаем на Собития")
     public TopMenu clickToEvents() {
         try {
             events.click();
@@ -79,25 +79,25 @@ public class TopMenu {
         return null;
     }
 
-    @Step ("Кликаем на Компании")
+//    @Step ("Кликаем на Компании")
     public TopMenu clickToCompanies() {
         companies.click();
         return this;
     }
 
-    @Step ("Кликаем на Продукты")
+//    @Step ("Кликаем на Продукты")
     public TopMenu clickToProducts(){
         products.click();
         return this;
     }
 
-    @Step ("Кликаем на Людей")
+//    @Step ("Кликаем на Людей")
     public TopMenu clickToPeople(){
         people.click();
         return this;
     }
 
-    @Step ("Кликаем на Новости")
+//    @Step ("Кликаем на Новости")
     public TopMenu clickToNews() {
         news.click();
         return this;

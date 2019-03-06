@@ -13,58 +13,58 @@ public class __SanityTests extends BaseTest{
         super.tearDown();
     }
 
-    @Test
+    @Test (priority = 0)
     void signUp(){
 
     }
 
-    @Test
+    @Test (priority = 1)
     void login(){
 
     }
 
-    @Test
+    @Test(priority = 100)
     void createCompany(){
 
     }
 
-    @Test
+    @Test(priority = 100)
     void searchForCompany(){
 
     }
 
 
-    @Test
+    @Test(priority = 100)
     void createProduct(){
 
     }
 
-    @Test
+    @Test(priority = 100)
     void searctForProduct(){
 
     }
 
-    @Test
+    @Test(priority = 100)
     void createPerson(){
 
     }
 
-    @Test
+    @Test(priority = 100)
     void searchForPerson(){
 
     }
 
-    @Test
+    @Test(priority = 100)
     void associateAccountWithCompany(){
 
     }
 
-    @Test
+    @Test(priority = 100)
     void createNews() {
 
     }
 
-    @Test
+    @Test(priority = 100)
     void searchForNews() {
 
     }

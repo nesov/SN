@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import ru.yandex.qatools.allure.annotations.Step;
+//import ru.yandex.qatools.allure.annotations.Step;
 
 /**
  * Created by alexnesov on 21/03/2017.
@@ -30,22 +30,22 @@ public class BottomMenu {
         PageFactory.initElements(driver, this);
     }
 
-    @Step ("Кликаем на елемент боттом бара Explore")
+//    @Step ("Кликаем на елемент боттом бара Explore")
     public void clickToExplore() {
         getExploreElement().click();
     }
 
-    @Step ("Кликаем на елемент боттом бара Chat")
+//    @Step ("Кликаем на елемент боттом бара Chat")
     public void clickToChat() {
         getChatElement().click();
     }
 
-    @Step ("Кликаем на елемент боттом бара Mail")
+//    @Step ("Кликаем на елемент боттом бара Mail")
     public void clickToMail() {
         getMailElement().click();
     }
 
-    @Step ("Кликаем на елемент боттом бара App Mode")
+//    @Step ("Кликаем на елемент боттом бара App Mode")
     public void clickToAppMode() {
         getAppmodeElement().click();
     }

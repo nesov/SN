@@ -2,17 +2,16 @@ package utils;
 
 import app.SynergyApp;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.logging.LogType;
 import org.openqa.selenium.logging.LoggingPreferences;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.WebDriver;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 
 /**
@@ -26,14 +25,18 @@ import java.util.logging.Level;
     public SynergyApp app;
 
     public  void setUp() {
-        System.setProperty("webdriver.chrome.driver","drivers/chromedriver240");
+        System.setProperty("webdriver.chrome.driver","drivers/chromedriver246");
 
-        DesiredCapabilities caps = DesiredCapabilities.chrome();
         LoggingPreferences logPrefs = new LoggingPreferences();
         logPrefs.enable(LogType.BROWSER, Level.ALL);
+
+        ChromeOptions caps = new ChromeOptions();
         caps.setCapability(CapabilityType.LOGGING_PREFS, logPrefs);
-        driver = new ChromeDriver(caps);
-        driver.manage().timeouts().implicitlyWait(5L, TimeUnit.SECONDS);
+
+        ChromeDriverService service = (ChromeDriverService.createDefaultService());
+
+        driver = new ChromeDriver(service,caps);
+//        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
 
 //        app = PageFactory.initElements(driver, SynergyApp.class);
@@ -41,7 +44,7 @@ import java.util.logging.Level;
 
 
     public void setUp1(){
-        System.setProperty("webdriver.chrome.driver","drivers/chromedriver240");
+        System.setProperty("webdriver.chrome.driver","drivers/chromedriver246");
 
         LoggingPreferences logPrefs = new LoggingPreferences();
         logPrefs.enable(LogType.BROWSER, Level.ALL);

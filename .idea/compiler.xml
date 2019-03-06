@@ -6,10 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="SN" />
         <module name="synergy-network" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="SN" target="1.8" />
       <module name="synergy-network" target="1.8" />
     </bytecodeTargetLevel>
   </component>
