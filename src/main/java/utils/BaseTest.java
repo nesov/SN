@@ -7,9 +7,11 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.logging.LogType;
 import org.openqa.selenium.logging.LoggingPreferences;
 import org.openqa.selenium.remote.CapabilityType;
-import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Level;
@@ -22,9 +24,11 @@ import java.util.logging.Level;
 
     public WebDriver driver;
 
+
+
     public SynergyApp app;
 
-    public  void setUp() {
+    public  void setUp_local_chrome_driver() {
         System.setProperty("webdriver.chrome.driver","drivers/chromedriver246");
 
         LoggingPreferences logPrefs = new LoggingPreferences();
@@ -43,7 +47,7 @@ import java.util.logging.Level;
     }
 
 
-    public void setUp1(){
+    public void setUp_local_mobile_web_driver(){
         System.setProperty("webdriver.chrome.driver","drivers/chromedriver246");
 
         LoggingPreferences logPrefs = new LoggingPreferences();
@@ -66,10 +70,29 @@ import java.util.logging.Level;
 
     }
 
+    public void setUp_remote_chrome_driver(){
+
+
+        LoggingPreferences logPrefs = new LoggingPreferences();
+        logPrefs.enable(LogType.BROWSER, Level.ALL);
+
+
+
+        ChromeOptions caps = new ChromeOptions();
+        caps.setCapability(CapabilityType.LOGGING_PREFS, logPrefs);
+
+        try{
+
+            driver = new RemoteWebDriver(new URL("http://192.168.3.167:4444/wd/hub"),caps);
+
+        } catch (MalformedURLException ex){
+            ex.printStackTrace();
+        }
+
+    }
+
     public void tearDown(){
         driver.close();
-//        WebDriverPool.DEFAULT.dismissDriver(driver);
-//        WebDriverPool.DEFAULT.dismissAll();
     }
 
 

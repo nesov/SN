@@ -6,7 +6,7 @@ import utils.BaseTest;
 public class __SanityTests extends BaseTest{
     @BeforeClass
     public void setUp(){
-        super.setUp();
+        super.setUp_local_chrome_driver();
     }
     @AfterClass
     public void tearDown(){
