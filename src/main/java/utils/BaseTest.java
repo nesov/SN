@@ -24,11 +24,9 @@ import java.util.logging.Level;
 
     public WebDriver driver;
 
+//    public SynergyApp app;
 
-
-    public SynergyApp app;
-
-    public  void setUp_local_chrome_driver() {
+    public void setUp_local_chrome_driver() {
         System.setProperty("webdriver.chrome.driver","drivers/chromedriver246");
 
         LoggingPreferences logPrefs = new LoggingPreferences();
@@ -40,12 +38,7 @@ import java.util.logging.Level;
         ChromeDriverService service = (ChromeDriverService.createDefaultService());
 
         driver = new ChromeDriver(service,caps);
-//        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-
-
-//        app = PageFactory.initElements(driver, SynergyApp.class);
     }
-
 
     public void setUp_local_mobile_web_driver(){
         System.setProperty("webdriver.chrome.driver","drivers/chromedriver246");
@@ -72,11 +65,8 @@ import java.util.logging.Level;
 
     public void setUp_remote_chrome_driver(){
 
-
         LoggingPreferences logPrefs = new LoggingPreferences();
         logPrefs.enable(LogType.BROWSER, Level.ALL);
-
-
 
         ChromeOptions caps = new ChromeOptions();
         caps.setCapability(CapabilityType.LOGGING_PREFS, logPrefs);

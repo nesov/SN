@@ -1,3 +1,5 @@
+package Server_rendering_tests;
+
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 
