@@ -8,7 +8,7 @@ public class RemoteTemp extends BaseTest {
 
     @BeforeClass
     public void setUp(){
-        super.setUp_local_chrome_driver();
+        super.setUp_remote_ff_driver();
     }
 
 
@@ -23,10 +23,12 @@ public class RemoteTemp extends BaseTest {
 
         driver.get("https://synergy.net/");
 
-        String script = "var newWin = window.open(\"about:blank\", \"hello\", \"width=200\",\"height=200\");"
-                      + "newWin.document.write(\"Привет, мир!\");"
-                      + "newWin.close()";
-
-        WaitHelper.runJScript(driver,script);
+//        String script1 ="alert('asdasdasdasd')";
+//
+//        String script = "var newWin = window.open(\"https://synergy.net/\", \"hello\", \"width=200\",\"height=200\");"
+//                      + "newWin.document.write(\"Привет, мир!\");"
+//                      + "newWin.close()";
+//
+//        WaitHelper.runJScript(driver,script);
     }
 }

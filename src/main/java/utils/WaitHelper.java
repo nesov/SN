@@ -26,11 +26,11 @@ public class WaitHelper extends BaseTest{
 
     }
 
-
     public static void waitingFor1(WebDriver driver,WebElement webElement, int timeOutInseconds){
         WebDriverWait wait = new WebDriverWait(driver, timeOutInseconds);
             wait.until(ExpectedConditions.visibilityOf(webElement));
-        };
+        }
+
 
     public static void runJScript(WebDriver driver, String jscript){
         ((JavascriptExecutor) driver).executeScript(jscript);

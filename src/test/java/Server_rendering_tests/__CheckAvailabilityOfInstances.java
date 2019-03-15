@@ -18,7 +18,7 @@ import utils.BaseTest;
 
 
 public class __CheckAvailabilityOfInstances extends BaseTest{
-    private static final String PREFIX ="pp22-";
+    private static final String PREFIX ="pp00-";
 
     private static final String [] PROD_INSTANCES = {
             "https://lawpower.com",
@@ -105,6 +105,7 @@ public class __CheckAvailabilityOfInstances extends BaseTest{
 
     };
 
+
     public WebDriver analyzeLog(){
         LogEntries logEntries = driver.manage().logs().get(LogType.BROWSER);
 
@@ -113,21 +114,18 @@ public class __CheckAvailabilityOfInstances extends BaseTest{
             if (entry.toString().contains("Rendered by Server!")){
                 System.out.println(entry  + " - Rendering OK");
                 Assert.assertTrue(true, "Rendering works");
-            }
 
-            if (entry.toString().contains("Rendered from Cache!")){
+            } else if (entry.toString().contains("Rendered from Cache!")){
                 System.out.println(entry  + " - Rendering OK");
                 Assert.assertTrue(true,"Rendering works");
-            }
 
-            if (entry.toString().contains("Rendered by Client!")) {
+            } else if (entry.toString().contains("Rendered by Client!")) {
                 System.out.println(entry + " - Rendering DOES NOT WORK");
-                Assert.assertFalse(false,"Rendering DOES NOT WORK");
+//                Assert.fail("Рендеринг не работает");
 
-            }
-
-            if (entry.toString().contains("502")) {
+            } else if (entry.toString().contains("502")) {
                 System.out.println(entry + " - Bad gateway");
+//                Assert.fail("Инфратруктрная проблема");
 
             }
 
@@ -153,9 +151,10 @@ public class __CheckAvailabilityOfInstances extends BaseTest{
 
     @BeforeTest
     public void setUp() {
-//        super.setUp_local_chrome_driver();
+        super.setUp_local_chrome_driver();
 //        super.setUp_local_mobile_web_driver();
-        super.setUp_remote_chrome_driver();
+//        super.setUp_remote_chrome_driver();
+//        super.setUp_remote_ff_driver();
         }
 
 
@@ -174,8 +173,9 @@ public class __CheckAvailabilityOfInstances extends BaseTest{
     @Test
     @Severity(SeverityLevel.BLOCKER)
     void checkingAvailability(){
-        passThroughAllTheIntances(PROD_INSTANCES);
+        passThroughAllTheIntances(IMPPORTANT_INTANCES);
     }
+
 
     @Test
     @Severity(SeverityLevel.CRITICAL)
