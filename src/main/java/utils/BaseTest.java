@@ -28,9 +28,6 @@ import java.util.logging.Level;
 
 
 
-
-
-
 //    public void setUp_local_mobile_web_driver(){
 //        System.setProperty("webdriver.chrome.driver","drivers/chromedriver246");
 //
