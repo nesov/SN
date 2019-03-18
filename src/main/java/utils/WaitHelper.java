@@ -1,12 +1,11 @@
 package utils;
 
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class WaitHelper extends BaseTest{
+public class WaitHelper{
 
 
     public static void waitingForFiveSeconds(WebDriver driver, WebElement webElement){
@@ -30,15 +29,6 @@ public class WaitHelper extends BaseTest{
         WebDriverWait wait = new WebDriverWait(driver, timeOutInseconds);
             wait.until(ExpectedConditions.visibilityOf(webElement));
         }
-
-
-    public static void runJScript(WebDriver driver, String jscript){
-        ((JavascriptExecutor) driver).executeScript(jscript);
-
-    }
-
-
-
 }
 
 

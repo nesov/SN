@@ -1,27 +1,28 @@
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import utils.BaseTest;
-import utils.WaitHelper;
+import settings.ISettings;
 
-public class RemoteTemp extends BaseTest {
+public class RemoteTemp {
+
+    ISettings settings;
 
     @BeforeClass
     public void setUp(){
-        super.setUp_remote_ff_driver();
+//        super.setUp_remote_ff_driver();
     }
 
 
     @AfterClass
      public void tearDown(){
-        super.tearDown();
+        settings.tearDown();
     }
 
     @Test
     void run_test(){
 
 
-        driver.get("https://synergy.net/");
+        settings.getDriver().get("https://synergy.net/");
 
 //        String script1 ="alert('asdasdasdasd')";
 //
