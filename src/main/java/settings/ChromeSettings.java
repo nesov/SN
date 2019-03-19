@@ -7,18 +7,20 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.logging.LogType;
 import org.openqa.selenium.logging.LoggingPreferences;
 import org.openqa.selenium.remote.CapabilityType;
-import utils.BaseTest;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.logging.Level;
 
-public class ChromeSettings extends BaseTest implements ISettings {
+public class ChromeSettings implements ISettings {
 
     private WebDriver driver = null;
 
     public void ChromeSettings(){ }
 
     @Override
-    public void setUp(){
+    public void setUp(BrowserType browserType){
+
         System.setProperty("webdriver.chrome.driver","drivers/chromedriver246");
 
         LoggingPreferences logPrefs = new LoggingPreferences();
@@ -27,16 +29,35 @@ public class ChromeSettings extends BaseTest implements ISettings {
         ChromeOptions options = new ChromeOptions();
         options.setCapability(CapabilityType.LOGGING_PREFS, logPrefs);
 
-        ChromeDriverService service = (ChromeDriverService.createDefaultService());
+        switch (browserType) {
 
-        if(driver==null)
-            driver = new ChromeDriver(service,options);
+            case WEB:
 
+                driver = new ChromeDriver((ChromeDriverService.createDefaultService()),options);
+                break;
+
+            case MOB_WEB:
+
+                Map<String, Object> deviceMetrics = new HashMap<>();
+                deviceMetrics.put("width", 360);
+                deviceMetrics.put("height", 640);
+                deviceMetrics.put("pixelRatio", 3.0);
+
+                Map<String, Object> mobileEmulation = new HashMap<>();
+                mobileEmulation.put("deviceMetrics", deviceMetrics);
+                mobileEmulation.put("userAgent", "Mozilla/5.0 (Linux; Android 4.2.1; en-us; Nexus 5 Build/JOP40D) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166 Mobile Safari/535.19");
+
+                options.setExperimentalOption("mobileEmulation", mobileEmulation);
+
+
+                driver = new ChromeDriver(options);
+                break;
+        }
     }
 
     @Override
     public void tearDown(){
-        if(driver!= null) driver.close();
+        this.getDriver().quit();
     }
 
     public WebDriver getDriver() {

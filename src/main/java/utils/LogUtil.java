@@ -8,6 +8,7 @@ import settings.ISettings;
 public class LogUtil {
 
     public static void analyzeLog(ISettings settings){
+
         LogEntries logEntries = settings.getDriver().manage().logs().get(LogType.BROWSER);
 
         for(LogEntry entry : logEntries) {

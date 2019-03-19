@@ -2,7 +2,6 @@ package Server_rendering_tests;
 
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
-import io.qameta.allure.Step;
 import org.testng.annotations.*;
 import settings.BrowserType;
 import settings.ChromeSettings;
@@ -10,12 +9,12 @@ import settings.ISettings;
 import utils.LogUtil;
 
 
-public class Check_Server_Rendering_Test_Suite {
+
+public class Check_Server_Rendering_MOB_WEB_Test_Suite {
+
 
     private ISettings settings;
     private static final String PREFIX ="pp00-";
-
-    @Step("Ren reading array of synergy domain")
     private void passThroughAllTheIntances(String[] instance)  {
 
         try {
@@ -61,6 +60,7 @@ public class Check_Server_Rendering_Test_Suite {
             "https://adp.synergy.net",
             "https://mhi.synergy.net"
     };
+
     private static final String [] IMPPORTANT_INTANCES = {
             "https://shemesh.co.il",
             "https://frostburgcity.org",
@@ -115,10 +115,12 @@ public class Check_Server_Rendering_Test_Suite {
 
     };
 
+
     @BeforeMethod
     public void setUp() {
-        settings =  new ChromeSettings();
-        settings.setUp(BrowserType.WEB);
+        settings = new ChromeSettings();
+        settings.setUp(BrowserType.MOB_WEB);
+
     }
 
     @AfterMethod
@@ -137,13 +139,4 @@ public class Check_Server_Rendering_Test_Suite {
     void checking_rendering_on_important_instances(){
         passThroughAllTheIntances(IMPPORTANT_INTANCES);
     }
-
-
-    @Test(enabled = false)
-    @Severity(SeverityLevel.MINOR)
-    void checking_rendering_on_PP_instances(){
-        passThroughAllTheIntances(PRE_PROD_INTANCES);
-    }
-
 }
-
