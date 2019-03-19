@@ -116,14 +116,14 @@ public class Check_Server_Rendering_MOB_WEB_Test_Suite {
     };
 
 
-    @BeforeMethod
+    @BeforeClass
     public void setUp() {
         settings = new ChromeSettings();
         settings.setUp(BrowserType.MOB_WEB);
 
     }
 
-    @AfterMethod
+    @AfterClass
     public void tearDown() {
         settings.tearDown();
     }
