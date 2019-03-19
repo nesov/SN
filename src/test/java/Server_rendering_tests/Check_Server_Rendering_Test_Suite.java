@@ -15,7 +15,7 @@ public class Check_Server_Rendering_Test_Suite {
     private ISettings settings;
     private static final String PREFIX ="pp00-";
 
-    @Step("Ren reading array of synergy domain")
+    @Step("Rendering reading array of synergy domain")
     private void passThroughAllTheIntances(String[] instance)  {
 
         try {
@@ -27,7 +27,7 @@ public class Check_Server_Rendering_Test_Suite {
 //            ex.printStackTrace();
         }
 
-        System.out.println("DONE...");
+
     }
 
     private static final String [] PROD_INSTANCES = {
