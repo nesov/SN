@@ -9,7 +9,6 @@ import org.testng.annotations.Test;
 import settings.SettingsFactory;
 import settings.concreteSettings.BrowserName;
 import settings.concreteSettings.BrowserType;
-import settings.concreteSettings.ChromeSettings;
 import settings.ISettings;
 import utils.Utils;
 
@@ -20,7 +19,7 @@ public class CrossInstanceTests {
     private ArrayList <String> IMPORTANT_INSTANCES;
     private ArrayList <String> ALL_INSTANCES;
 
-    private ISettings ENVIRONMENT,ENVIRONMENT_MOB;
+    public ISettings ENVIRONMENT,ENVIRONMENT_MOB;
     private static final String PREFIX ="pp00-";
 
 //    private static final String [] IMPPORTANT_INTANCES = {
@@ -82,14 +81,9 @@ public class CrossInstanceTests {
         IMPORTANT_INSTANCES = Utils.readFromPropertyfile("res/instances.properties");
         ALL_INSTANCES = Utils.readFromPropertyfile("res/all_instances.properties");
 
+        ENVIRONMENT = (new SettingsFactory()).factoryMethod(BrowserType.WEB,BrowserName.CHROME);
+        ENVIRONMENT_MOB = (new SettingsFactory()).factoryMethod(BrowserType.MOB_WEB,BrowserName.CHROME);
 
-        ENVIRONMENT = SettingsFactory.factoryMethod(BrowserType.MOB_WEB, BrowserName.CHROME);
-
-        ENVIRONMENT = new ChromeSettings();
-        ENVIRONMENT.setUp(BrowserType.WEB);
-
-        ENVIRONMENT_MOB = new ChromeSettings();
-        ENVIRONMENT_MOB.setUp(BrowserType.MOB_WEB);
     }
 
     @AfterClass

@@ -2,10 +2,10 @@ package settings;
 
 import settings.concreteSettings.*;
 
-public abstract class SettingsFactory {
+public class SettingsFactory {
 
 
-    public static ISettings factoryMethod(BrowserType type, BrowserName name){
+    public ISettings factoryMethod(BrowserType type, BrowserName name){
 
         ISettings settings = null;
 
@@ -34,10 +34,6 @@ public abstract class SettingsFactory {
         } catch (IllegalArgumentException ex){
             ex.printStackTrace();
             return  null;
-
-        } finally {
-
-            return  null;
         }
 
 
@@ -48,11 +44,13 @@ public abstract class SettingsFactory {
 
         chromesettings = new ChromeSettings();
         chromesettings.setUp(type);
+
         return chromesettings;
     }
 
     private ISettings initFirefoxSettings(BrowserType type){
         ISettings ffsettings = null;
+
         ffsettings = new FirefoxSettings();
         ffsettings.setUp(type);
         return ffsettings;
