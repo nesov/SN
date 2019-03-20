@@ -13,17 +13,16 @@ public class LogUtil {
 
         for(LogEntry entry : logEntries) {
             if (entry.toString().contains("Rendered by Server!")){
-                System.out.println(entry  + " - Rendering OK");
+                System.out.println("Rendering OK - "+entry );
 
             } else if (entry.toString().contains("Rendered from Cache!")){
-                System.out.println(entry  + " - Rendering OK");
+                System.out.println("Rendering OK - "+ entry );
 
             } else if (entry.toString().contains("Rendered by Client!")) {
-                System.out.println(entry + " - Rendering DOES NOT WORK");
+                System.out.println("Rendering DOES NOT WORK - "+entry);
 
             } else if (entry.toString().contains("502")) {
-                System.out.println(entry + " - Bad gateway");
-
+                System.out.println("Bad gateway -"+entry);
             }
         }
     }

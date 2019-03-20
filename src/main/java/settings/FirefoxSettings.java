@@ -30,7 +30,6 @@ public class FirefoxSettings implements ISettings {
     public void tearDown(){
         driver.close();
     }
-
     public WebDriver getDriver() {
         return driver;
     }

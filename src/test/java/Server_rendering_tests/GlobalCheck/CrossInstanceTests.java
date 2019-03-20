@@ -1,8 +1,11 @@
-package Server_rendering_tests;
+package Server_rendering_tests.GlobalCheck;
+
 
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 import settings.BrowserType;
 import settings.ChromeSettings;
 import settings.ISettings;
@@ -10,13 +13,12 @@ import utils.Utils;
 
 import java.util.ArrayList;
 
-
-public class Check_Server_Rendering_Test_Suite {
+public class CrossInstanceTests {
 
     private ArrayList <String> IMPORTANT_INSTANCES;
     private ArrayList <String> ALL_INSTANCES;
 
-    private ISettings settings;
+    private ISettings ENVIRONMENT,ENVIRONMENT_MOB;
     private static final String PREFIX ="pp00-";
 
 //    private static final String [] IMPPORTANT_INTANCES = {
@@ -39,7 +41,7 @@ public class Check_Server_Rendering_Test_Suite {
 //            "https://siinda.synergy.net"
 //    };
 
- //    private static final String [] PRE_PROD_INTANCES = {
+    //    private static final String [] PRE_PROD_INTANCES = {
 //            "https://"+PREFIX+"lawpower.synergy.net",
 //
 //            "https://"+PREFIX+"thepharmacyatbergheim.synergy.net",
@@ -78,26 +80,56 @@ public class Check_Server_Rendering_Test_Suite {
         IMPORTANT_INSTANCES = Utils.readFromPropertyfile("res/instances.properties");
         ALL_INSTANCES = Utils.readFromPropertyfile("res/all_instances.properties");
 
-        settings =  new ChromeSettings();
-        settings.setUp(BrowserType.WEB);
+        ENVIRONMENT = new ChromeSettings();
+        ENVIRONMENT.setUp(BrowserType.WEB);
+
+        ENVIRONMENT_MOB = new ChromeSettings();
+        ENVIRONMENT_MOB.setUp(BrowserType.MOB_WEB);
     }
 
     @AfterClass
     public void tearDown() {
-        settings.tearDown();
+        ENVIRONMENT.tearDown();
+        ENVIRONMENT_MOB.tearDown();
     }
 
-    @Test(dependsOnMethods = {"checking_rendering_on_important_instances"},description = "Проверка серверного рендеринга инстансов на массиве всех элементов")
-    @Severity(SeverityLevel.CRITICAL)
-    void checking_rendering_on_all_instances(){
-        Utils.passThroughAllTheIntances(ALL_INSTANCES,settings);
-    }
 
-    @Test(description = "Проверка серверного ренедеринга на массиве супер важных инстансов")
+    @Test(description = "Проверка серверного ренедеринга инстансов\n"+
+                        "Браузер - Google Chrome\n"+
+                        "Режим представления - WEB")
     @Severity(SeverityLevel.BLOCKER)
     void checking_rendering_on_important_instances(){
-        Utils.passThroughAllTheIntances(IMPORTANT_INSTANCES,settings);
+        Utils.passThroughAllTheIntances(IMPORTANT_INSTANCES,ENVIRONMENT);
     }
 
-}
 
+    @Test(description = "Проверка серверного ренедеринга инстансов\n"+
+                        "Браузер - Google Chrome\n"+
+                        "Режим представления - MOB WEB")
+    @Severity(SeverityLevel.BLOCKER)
+    void checking_rendering_on_important_instances_mob(){
+        Utils.passThroughAllTheIntances(IMPORTANT_INSTANCES,ENVIRONMENT_MOB);
+    }
+
+
+    @Test(dependsOnMethods = "checking_rendering_on_important_instances",
+            description = "Проверка серверного рендеринга инстансов на массиве всех элементов\n"+
+                          "Браузер - Google Chrome\n"+
+                          "Режим представления - WEB")
+    @Severity(SeverityLevel.CRITICAL)
+    void checking_rendering_on_all_instances(){
+        Utils.passThroughAllTheIntances(ALL_INSTANCES,ENVIRONMENT);
+    }
+
+
+    @Test(dependsOnMethods = "checking_rendering_on_important_instances_mob",
+            description = "Проверка серверного рендеринга инстансов на массиве всех элементов"+
+                          "Браузер - Google Chrome\n"+
+                          "Режим представления - MOB WEB")
+    @Severity(SeverityLevel.CRITICAL)
+    void checking_rendering_on_all_instances_mob(){
+        Utils.passThroughAllTheIntances(ALL_INSTANCES,ENVIRONMENT_MOB);
+    }
+
+
+}
