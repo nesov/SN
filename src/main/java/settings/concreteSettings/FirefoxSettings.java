@@ -1,4 +1,4 @@
-package settings;
+package settings.concreteSettings;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -7,12 +7,15 @@ import org.openqa.selenium.firefox.GeckoDriverService;
 import org.openqa.selenium.logging.LogType;
 import org.openqa.selenium.logging.LoggingPreferences;
 import org.openqa.selenium.remote.CapabilityType;
+import settings.ISettings;
 
 import java.util.logging.Level;
 
 public class FirefoxSettings implements ISettings {
 
     private WebDriver driver;
+
+    public FirefoxSettings(){}
 
     public void setUp(BrowserType type){
 

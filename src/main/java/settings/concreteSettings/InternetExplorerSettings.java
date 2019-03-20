@@ -1,6 +1,7 @@
-package settings;
+package settings.concreteSettings;
 
 import org.openqa.selenium.WebDriver;
+import settings.ISettings;
 
 public class InternetExplorerSettings implements ISettings {
 

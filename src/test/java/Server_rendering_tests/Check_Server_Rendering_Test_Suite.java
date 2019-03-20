@@ -3,8 +3,8 @@ package Server_rendering_tests;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import org.testng.annotations.*;
-import settings.BrowserType;
-import settings.ChromeSettings;
+import settings.concreteSettings.BrowserType;
+import settings.concreteSettings.ChromeSettings;
 import settings.ISettings;
 import utils.Utils;
 

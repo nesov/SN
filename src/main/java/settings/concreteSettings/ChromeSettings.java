@@ -1,4 +1,4 @@
-package settings;
+package settings.concreteSettings;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -7,6 +7,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.logging.LogType;
 import org.openqa.selenium.logging.LoggingPreferences;
 import org.openqa.selenium.remote.CapabilityType;
+import settings.ISettings;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -16,7 +17,7 @@ public class ChromeSettings implements ISettings {
 
     private WebDriver driver = null;
 
-    public void ChromeSettings(){ }
+    public ChromeSettings(){}
 
     @Override
     public void setUp(BrowserType browserType){
@@ -33,7 +34,7 @@ public class ChromeSettings implements ISettings {
 
             case WEB:
 
-                driver = new ChromeDriver((ChromeDriverService.createDefaultService()),options);
+                driver = new ChromeDriver(ChromeDriverService.createDefaultService(),options);
                 break;
 
             case MOB_WEB:
@@ -50,7 +51,7 @@ public class ChromeSettings implements ISettings {
                 options.setExperimentalOption("mobileEmulation", mobileEmulation);
 
 
-                driver = new ChromeDriver(options);
+                driver = new ChromeDriver(ChromeDriverService.createDefaultService(),options);
                 break;
         }
     }
