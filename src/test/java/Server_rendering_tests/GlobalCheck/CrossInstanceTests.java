@@ -81,9 +81,11 @@ public class CrossInstanceTests {
         IMPORTANT_INSTANCES = Utils.readFromPropertyfile("res/instances.properties");
         ALL_INSTANCES = Utils.readFromPropertyfile("res/all_instances.properties");
 
-        ENVIRONMENT = (new SettingsFactory()).factoryMethod(BrowserType.WEB,BrowserName.CHROME);
-        ENVIRONMENT_MOB = (new SettingsFactory()).factoryMethod(BrowserType.MOB_WEB,BrowserName.CHROME);
+        SettingsFactory factory = new SettingsFactory();
 
+
+        ENVIRONMENT = factory.runBrowserSetiingsWith(BrowserName.CHROME,BrowserType.WEB);
+        ENVIRONMENT_MOB = factory.runBrowserSetiingsWith(BrowserName.CHROME,BrowserType.MOB_WEB);
     }
 
     @AfterClass

@@ -5,63 +5,34 @@ import settings.concreteSettings.*;
 public class SettingsFactory {
 
 
-    public ISettings factoryMethod(BrowserType type, BrowserName name){
+    public ISettings runBrowserSetiingsWith(BrowserName name, BrowserType type){
 
         ISettings settings = null;
 
-        try{
+        try {
 
-            if(type.equals(BrowserType.WEB) && name.equals(BrowserName.CHROME)){
-               settings = initChromeSettings(type);
-            }
-            if(type.equals(BrowserType.MOB_WEB) && name.equals(BrowserName.CHROME)){
-                settings = initChromeSettings(type);
-            }
+            switch (name) {
+                case CHROME:
+                    settings = new ChromeSettings();
+                    settings.setUp(type);
+                    break;
 
-            if(type.equals(BrowserType.WEB) && name.equals(BrowserName.FIREFOX)){
-                settings = initFirefoxSettings(type);
-            }
-            if(type.equals(BrowserType.MOB_WEB) && name.equals(BrowserName.FIREFOX)){
-                settings = initFirefoxSettings(type);
-            }
+                case FIREFOX:
+                    settings = new FirefoxSettings();
+                    settings.setUp(type);
+                    break;
 
-            if(type.equals(BrowserType.MOB_WEB) && name.equals(BrowserName.FIREFOX)){
-                settings = initInternetExplorerSettings(type);
+                case INTERNET_EXPLORER:
+                    settings = new InternetExplorerSettings();
+                    settings.setUp(type);
+                    break;
             }
 
             return settings;
 
         } catch (IllegalArgumentException ex){
             ex.printStackTrace();
-            return  null;
+            return null;
         }
-
-
     }
-
-    private ISettings initChromeSettings(BrowserType type){
-        ISettings chromesettings = null;
-
-        chromesettings = new ChromeSettings();
-        chromesettings.setUp(type);
-
-        return chromesettings;
-    }
-
-    private ISettings initFirefoxSettings(BrowserType type){
-        ISettings ffsettings = null;
-
-        ffsettings = new FirefoxSettings();
-        ffsettings.setUp(type);
-        return ffsettings;
-    }
-
-    private ISettings initInternetExplorerSettings(BrowserType type){
-        ISettings iesettings = null;
-
-        iesettings = new InternetExplorerSettings();
-        iesettings.setUp(type);
-        return  iesettings;
-    }
-
 }
