@@ -10,8 +10,6 @@ public class HeadlessSettings implements ISettings {
     @Override
     public void setUp(BrowserType browserType) {
 
-        
-
     }
 
     @Override
