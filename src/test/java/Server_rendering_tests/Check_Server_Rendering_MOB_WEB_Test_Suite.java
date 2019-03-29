@@ -21,39 +21,42 @@ public class Check_Server_Rendering_MOB_WEB_Test_Suite {
     private ISettings ENVIRONMENT;
 
     private ArrayList<String> PP22;
-    private static final String PREFIX ="pp22-";
+    private static final String PREFIX ="pp00-";
 
 
     private String [] PRE_PROD_INTANCES = {
-            "https://"+PREFIX+"lawpower.synergy.net",
-            "https://"+PREFIX+"thepharmacyatbergheim.synergy.net",
-            "http://"+PREFIX+"synergetica.synergy.net",
+
             "https://"+PREFIX+"shemesh.synergy.net",
             "https://"+PREFIX+"frostburgcity.synergy.net",
             "http://"+PREFIX+"biokon.synergy.net",
             "https://"+PREFIX+"viola.synergy.net",
+            "https://"+PREFIX+"lawpower.synergy.net",
+            "https://"+PREFIX+"thepharmacyatbergheim.synergy.net",
             "https://"+PREFIX+"siinda.synergy.net",
             "https://"+PREFIX+"libertytax.synergy.net",
             "https://"+PREFIX+"wilcodata.synergy.net",
             "https://"+PREFIX+"envisacarerx.synergy.net",
             "https://"+PREFIX+"premierpharmacysa.synergy.net",
-            "https://"+PREFIX+"alsma.synergy.net",
-            "https://"+PREFIX+"ukrcemfor.synergy.net",
-            "https://"+PREFIX+"localknowledge.synergy.net",
-            "https://"+PREFIX+"digitalfestival.synergy.net",
-            "https://"+PREFIX+"shift.synergy.net",
-            "https://"+PREFIX+"testingstage.synergy.net",
-            "https://"+PREFIX+"item.synergy.net",
-            "https://"+PREFIX+"gdpr.synergy.net",
-            "https://"+PREFIX+"ruby.synergy.net",
-            "https://"+PREFIX+"lts.synergy.net",
-            "https://"+PREFIX+"lsa.synergy.net",
-            "https://"+PREFIX+"vendasta.synergy.net",
-            "http://"+PREFIX+"antiguayello.synergy.net",
-            "https://"+PREFIX+"localcomm.synergy.net",
-            "https://"+PREFIX+"tompkins.synergy.net",
-            "https://"+PREFIX+"adp.synergy.net",
-            "https://"+PREFIX+"mhi.synergy.net"
+            "https://pp00.synergy.net",
+
+            "http://"+PREFIX+"synergetica.synergy.net"
+//            "https://"+PREFIX+"alsma.synergy.net",
+//            "https://"+PREFIX+"ukrcemfor.synergy.net",
+//            "https://"+PREFIX+"localknowledge.synergy.net",
+//            "https://"+PREFIX+"digitalfestival.synergy.net",
+//            "https://"+PREFIX+"shift.synergy.net",
+//            "https://"+PREFIX+"testingstage.synergy.net",
+//            "https://"+PREFIX+"item.synergy.net",
+//            "https://"+PREFIX+"gdpr.synergy.net",
+//            "https://"+PREFIX+"ruby.synergy.net",
+//            "https://"+PREFIX+"lts.synergy.net",
+//            "https://"+PREFIX+"lsa.synergy.net",
+//            "https://"+PREFIX+"vendasta.synergy.net",
+//            "http://"+PREFIX+"antiguayello.synergy.net",
+//            "https://"+PREFIX+"localcomm.synergy.net",
+//            "https://"+PREFIX+"tompkins.synergy.net",
+//            "https://"+PREFIX+"adp.synergy.net",
+//            "https://"+PREFIX+"mhi.synergy.net"
 
     };
 
@@ -74,13 +77,13 @@ public class Check_Server_Rendering_MOB_WEB_Test_Suite {
         PP22.add(PRE_PROD_INTANCES[10]);
         PP22.add(PRE_PROD_INTANCES[11]);
         PP22.add(PRE_PROD_INTANCES[12]);
-        PP22.add(PRE_PROD_INTANCES[13]);
-        PP22.add(PRE_PROD_INTANCES[14]);
-        PP22.add(PRE_PROD_INTANCES[15]);
-        PP22.add(PRE_PROD_INTANCES[16]);
-        PP22.add(PRE_PROD_INTANCES[17]);
-        PP22.add(PRE_PROD_INTANCES[18]);
-        PP22.add(PRE_PROD_INTANCES[19]);
+//        PP22.add(PRE_PROD_INTANCES[13]);
+//        PP22.add(PRE_PROD_INTANCES[14]);
+//        PP22.add(PRE_PROD_INTANCES[15]);
+//        PP22.add(PRE_PROD_INTANCES[16]);
+//        PP22.add(PRE_PROD_INTANCES[17]);
+//        PP22.add(PRE_PROD_INTANCES[18]);
+//        PP22.add(PRE_PROD_INTANCES[19]);
 
 
     }
@@ -113,7 +116,7 @@ public class Check_Server_Rendering_MOB_WEB_Test_Suite {
 
     @Test(description = "Проверка серверного ренедеринга на массиве супер важных инстансов")
     @Severity(SeverityLevel.BLOCKER)
-    void checking_rendering_on_important_instances_pp22(){
+    void checking_rendering_on_important_instances_pp00(){
         Utils.passThroughAllTheIntances(PP22,ENVIRONMENT);
     }
 }
