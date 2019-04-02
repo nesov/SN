@@ -1,6 +1,5 @@
 package utils;
 
-import org.openqa.selenium.By;
 import settings.ISettings;
 
 import java.io.*;
@@ -11,13 +10,7 @@ import java.util.Properties;
 
 public final class Utils {
 
-
-    private static String dirstr = "res/";
-
-
-    public static void takeShot_as_file(){
-
-    }
+    private static final String dir = "res/";
 
     public static ArrayList<String> readFromPropertyfile(String filename){
 
@@ -25,7 +18,7 @@ public final class Utils {
 
 
         try {
-                FileInputStream fileInput = new FileInputStream(new File(dirstr + filename));
+                FileInputStream fileInput = new FileInputStream(new File(dir + filename));
                 Properties properties = new Properties();
 
                 properties.load(fileInput);
@@ -48,11 +41,35 @@ public final class Utils {
         return (ArrayList<String>) hosts;
     }
 
-    public static void passThroughAllTheIntances(ArrayList list, ISettings settings)  {
+    public static String readtPropertyByKey(String key, String filename){
+        String val = null;
+        FileInputStream fileInput = null;
+        Properties properties = new Properties();
+
+        try {
+            fileInput = new FileInputStream(new File(dir + filename));
+            properties.load(fileInput);
+
+            val = properties.getProperty(key);
+        } catch (FileNotFoundException ex){
+            ex.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                fileInput.close();
+            } catch (IOException io){
+
+            }
+        }
+        return val;
+    }
+
+    public static void passThroughAllTheIntances(ArrayList<String> list, ISettings settings)  {
 
         try {
             for (int i = 0; i <= list.size(); i++) {
-                settings.getDriver().get((String)list.get(i));
+                settings.getDriver().get(list.get(i));
                 LogUtil.analyzeLog(settings);
                 settings.getDriver().navigate().refresh();
             }
