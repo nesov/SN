@@ -5,7 +5,8 @@
 //
 //    public static void main(String[] args) {
 //
-//        TestNG testNG = new TestNG();
+//        TestNG suite = new TestNG();
+//        suite.addClassLoader(ClassLoader.getPlatformClassLoader().getParent());
 //
 //    }
 //}

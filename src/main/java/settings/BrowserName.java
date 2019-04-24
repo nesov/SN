@@ -1,4 +1,4 @@
-package settings.concreteSettings;
+package settings;
 
 public enum BrowserName {
     CHROME,

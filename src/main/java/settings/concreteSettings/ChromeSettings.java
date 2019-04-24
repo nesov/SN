@@ -7,6 +7,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.logging.LogType;
 import org.openqa.selenium.logging.LoggingPreferences;
 import org.openqa.selenium.remote.CapabilityType;
+import settings.BrowserType;
 import settings.ISettings;
 
 import java.util.HashMap;
@@ -29,6 +30,7 @@ public class ChromeSettings implements ISettings {
 
         ChromeOptions options = new ChromeOptions();
         options.setCapability(CapabilityType.LOGGING_PREFS, logPrefs);
+        options.addArguments("--headless");
 
         switch (browserType) {
 

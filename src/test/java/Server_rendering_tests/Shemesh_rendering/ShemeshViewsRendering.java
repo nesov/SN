@@ -4,14 +4,13 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import settings.ISettings;
-import settings.SettingsFactory;
-import settings.concreteSettings.BrowserName;
-import settings.concreteSettings.BrowserType;
+import settings.concreteSettings.SettingsFactory;
+import settings.BrowserName;
+import settings.BrowserType;
 import utils.Utils;
 
 import java.util.ArrayList;
 
-@Test
 public class ShemeshViewsRendering {
 
     private ISettings ENVIRONMENT;
@@ -58,9 +57,4 @@ public class ShemeshViewsRendering {
     void highlights(){}
     void highlight_details_with_multiple_items(){}
     void highlight_details_with_single_item(){}
-
-
-
-
-
 }

@@ -1,4 +1,4 @@
-package app.modals;
+package oldcore.modals;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

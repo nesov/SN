@@ -7,6 +7,7 @@ import org.openqa.selenium.firefox.GeckoDriverService;
 import org.openqa.selenium.logging.LogType;
 import org.openqa.selenium.logging.LoggingPreferences;
 import org.openqa.selenium.remote.CapabilityType;
+import settings.BrowserType;
 import settings.ISettings;
 
 import java.util.logging.Level;

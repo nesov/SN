@@ -1,4 +1,4 @@
-package app.modals;
+package oldcore.modals;
 
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;

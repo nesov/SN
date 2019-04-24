@@ -1,10 +1,7 @@
-package app;
+package oldcore;
 
-import app.modals.SignUpModal;
-import app.controls.BottomMenu;
-import app.modals.LoginModal;
-import app.controls.SearchBar;
-import app.controls.TopMenu;
+import oldcore.modals.SignUpModal;
+import oldcore.modals.LoginModal;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 

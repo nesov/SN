@@ -1,6 +1,8 @@
-package settings;
+package settings.concreteSettings;
 
-import settings.concreteSettings.*;
+import settings.BrowserName;
+import settings.BrowserType;
+import settings.ISettings;
 
 public class SettingsFactory {
 

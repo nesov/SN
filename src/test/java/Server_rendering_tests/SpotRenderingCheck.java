@@ -3,16 +3,16 @@ package Server_rendering_tests;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import org.testng.annotations.*;
-import settings.SettingsFactory;
-import settings.concreteSettings.BrowserName;
-import settings.concreteSettings.BrowserType;
+import settings.concreteSettings.SettingsFactory;
+import settings.BrowserName;
+import settings.BrowserType;
 import settings.ISettings;
 import utils.Utils;
 
 import java.util.ArrayList;
 
 
-public class Check_Server_Rendering_MOB_WEB_Test_Suite {
+public class SpotRenderingCheck {
 
 
 

@@ -71,7 +71,7 @@ public final class Utils {
             for (int i = 0; i <= list.size(); i++) {
                 settings.getDriver().get(list.get(i));
                 LogUtil.analyzeLog(settings);
-                settings.getDriver().navigate().refresh();
+//                settings.getDriver().navigate().refresh();
             }
         } catch (IndexOutOfBoundsException ex){
 //            ex.printStackTrace();
