@@ -16,11 +16,9 @@ public final class Utils {
 
         List<String> hosts = new ArrayList<>();
 
-
         try {
                 FileInputStream fileInput = new FileInputStream(new File(dir + filename));
                 Properties properties = new Properties();
-
                 properties.load(fileInput);
                 fileInput.close();
 
@@ -76,8 +74,5 @@ public final class Utils {
         } catch (IndexOutOfBoundsException ex){
 //            ex.printStackTrace();
         }
-
-        System.out.println("DONE...");
     }
-
 }

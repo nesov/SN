@@ -33,7 +33,9 @@
                     </argLine>
 
                     <suiteXmlFiles>
+                        <!--<file>res/testruns/testng1.xml</file>-->
                         <file>res/testruns/testng.xml</file>
+
                     </suiteXmlFiles>
                 </configuration>
             </plugin>

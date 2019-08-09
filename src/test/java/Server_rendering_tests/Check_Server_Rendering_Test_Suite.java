@@ -75,8 +75,8 @@ public class Check_Server_Rendering_Test_Suite {
 
     @BeforeClass
     public void setUp() {
-        IMPORTANT_INSTANCES = Utils.readFromPropertyfile("res/instances.properties");
-        ALL_INSTANCES = Utils.readFromPropertyfile("res/all_instances.properties");
+        IMPORTANT_INSTANCES = Utils.readFromPropertyfile("instances.properties");
+        ALL_INSTANCES = Utils.readFromPropertyfile("all_instances.properties");
 
         settings =  new ChromeSettings();
         settings.setUp(BrowserType.WEB);

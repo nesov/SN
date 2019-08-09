@@ -30,7 +30,8 @@ public class ChromeSettings implements ISettings {
 
         ChromeOptions options = new ChromeOptions();
         options.setCapability(CapabilityType.LOGGING_PREFS, logPrefs);
-        options.addArguments("--headless");
+//        options.addArguments("--headless");
+        options.setHeadless(true);
 
         switch (browserType) {
 
