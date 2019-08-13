@@ -11,6 +11,7 @@ public class LogUtil {
 
         LogEntries logEntries = settings.getDriver().manage().logs().get(LogType.BROWSER);
 
+
         for(LogEntry entry : logEntries) {
             if (entry.toString().contains("Rendered by Server!")){
                 System.out.println("Rendering OK - "+entry );
