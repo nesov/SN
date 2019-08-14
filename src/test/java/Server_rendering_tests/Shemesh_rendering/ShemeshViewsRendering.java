@@ -19,7 +19,7 @@ public class ShemeshViewsRendering {
     @BeforeClass
     void setup(){
         INSTANCES = Utils.readFromPropertyfile("shemesh.properties");
-        ENVIRONMENT = (new SettingsFactory()).runBrowserSetiingsWith(BrowserName.CHROME, BrowserType.WEB);
+        ENVIRONMENT = (new SettingsFactory()).runBrowserSettingsWith(BrowserName.CHROME, BrowserType.WEB);
 
     }
     @AfterClass

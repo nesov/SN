@@ -14,7 +14,7 @@ public class LogUtil {
 
         for(LogEntry entry : logEntries) {
             if (entry.toString().contains("Rendered by Server!")){
-                System.out.println("Rendering OK - "+entry );
+                System.out.println("Rendering OK - "+ entry );
 
             } else if (entry.toString().contains("Rendered from Cache!")){
                 System.out.println("Rendering OK - "+ entry );

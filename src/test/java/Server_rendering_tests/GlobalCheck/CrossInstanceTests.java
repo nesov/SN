@@ -1,10 +1,14 @@
 package Server_rendering_tests.GlobalCheck;
 
 
+import com.automation.remarks.testng.UniversalVideoListener;
+import com.automation.remarks.video.annotations.Video;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
+import oldcore.SynergyApp;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import settings.concreteSettings.SettingsFactory;
 import settings.BrowserName;
@@ -13,7 +17,10 @@ import settings.ISettings;
 import utils.Utils;
 
 import java.util.ArrayList;
+import java.util.Date;
 
+
+@Listeners(UniversalVideoListener.class)
 public class CrossInstanceTests {
 
     private ArrayList <String> IMPORTANT_INSTANCES,ALL_INSTANCES;
@@ -25,7 +32,7 @@ public class CrossInstanceTests {
         IMPORTANT_INSTANCES = Utils.readFromPropertyfile("instances.properties");
         ALL_INSTANCES = Utils.readFromPropertyfile("all_instances.properties");
 
-        ENVIRONMENT = (new SettingsFactory()).runBrowserSetiingsWith(BrowserName.CHROME,BrowserType.WEB);
+        ENVIRONMENT = (new SettingsFactory()).runBrowserSettingsWith(BrowserName.CHROME,BrowserType.WEB);
     }
 
     @AfterClass
@@ -33,7 +40,7 @@ public class CrossInstanceTests {
         ENVIRONMENT.tearDown();
     }
 
-
+    @Video (name = "Проверка серверного ренедеринга инстансов")
     @Test(description = "Проверка серверного ренедеринга инстансов\n"+
                         "Браузер - Google Chrome\n"+
                         "Режим представления - WEB")

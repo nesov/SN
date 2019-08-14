@@ -7,7 +7,7 @@ import settings.ISettings;
 public class SettingsFactory {
 
 
-    public ISettings runBrowserSetiingsWith(BrowserName name, BrowserType type){
+    public ISettings runBrowserSettingsWith(BrowserName name, BrowserType type){
 
         ISettings settings = null;
 

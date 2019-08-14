@@ -70,7 +70,7 @@ public class SpotRenderingCheck {
 
     @BeforeClass
     public void setUp() {
-        ENVIRONMENT = (new SettingsFactory()).runBrowserSetiingsWith(BrowserName.CHROME,BrowserType.WEB);
+        ENVIRONMENT = (new SettingsFactory()).runBrowserSettingsWith(BrowserName.CHROME,BrowserType.WEB);
         PP = new ArrayList<>(initArray());
     }
 

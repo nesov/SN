@@ -6,7 +6,6 @@ import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.logging.LogType;
 import org.openqa.selenium.logging.LoggingPreferences;
-import org.openqa.selenium.remote.CapabilityType;
 import settings.BrowserType;
 import settings.ISettings;
 
@@ -24,14 +23,13 @@ public class ChromeSettings implements ISettings {
     public void setUp(BrowserType browserType){
 
         System.setProperty("webdriver.chrome.driver","drivers/chromedriver76");
-//        System.setProperty("webdriver.chrome.verboseLogging", "true");
 
         LoggingPreferences logPrefs = new LoggingPreferences();
         logPrefs.enable(LogType.BROWSER, Level.ALL);
 
         ChromeOptions options = new ChromeOptions();
         options.setCapability("goog:loggingPrefs", logPrefs);
-        options.setHeadless(true);
+//        options.setHeadless(true);
 
         switch (browserType) {
 

@@ -10,13 +10,33 @@ public abstract class Field implements Clickable,Typable {
     private WebElement element;
 
     private String title;
-    private boolean isHidden;
+    private boolean isHidden = false;
     private String xpath;
 
     public Field(String title, String xpath){
         this.title = title;
         this.xpath = xpath;
 
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setHidden(boolean hidden) {
+        isHidden = hidden;
+    }
+
+    public void setXpath(String xpath) {
+        this.xpath = xpath;
+    }
+
+    public void setDriver(WebDriver driver) {
+        this.driver = driver;
+    }
+
+    public void setElement(WebElement element) {
+        this.element = element;
     }
 
     public void click(){

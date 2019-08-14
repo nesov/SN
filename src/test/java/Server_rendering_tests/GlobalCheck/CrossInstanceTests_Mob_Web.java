@@ -22,7 +22,7 @@ public class CrossInstanceTests_Mob_Web {
     public void setUp() {
         IMPORTANT_INSTANCES = Utils.readFromPropertyfile("instances.properties");
         ALL_INSTANCES = Utils.readFromPropertyfile("all_instances.properties");
-        ENVIRONMENT_MOB = (new SettingsFactory()).runBrowserSetiingsWith(BrowserName.CHROME,BrowserType.MOB_WEB);
+        ENVIRONMENT_MOB = (new SettingsFactory()).runBrowserSettingsWith(BrowserName.CHROME,BrowserType.MOB_WEB);
     }
 
 
