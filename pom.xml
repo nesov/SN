@@ -12,7 +12,10 @@
         <aspectj.version>1.8.10</aspectj.version>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
+
     </properties>
+
+
 
     <build>
         <plugins>
@@ -33,9 +36,8 @@
                     </argLine>
 
                     <suiteXmlFiles>
-                        <!--<file>res/testruns/testng1.xml</file>-->
-                        <file>res/testruns/testng.xml</file>
-
+<!--                        <file>res/testruns/testng1.xml</file>-->
+                        <file>${basedir}/res/testruns/testng.xml</file>
                     </suiteXmlFiles>
                 </configuration>
             </plugin>
@@ -44,9 +46,16 @@
                 <groupId>io.qameta.allure</groupId>
                 <artifactId>allure-maven</artifactId>
                 <version>2.9</version>
-                <configuration>
-                    <reportVersion>2.4.1</reportVersion>
-                </configuration>
+
+<!--                <configuration>-->
+
+<!--                        <reportVersion>2.4.1</reportVersion>-->
+<!--&lt;!&ndash;                        <resultsDirectory>allure-results</resultsDirectory>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <reportDirectory>${basedir}/target/</reportDirectory>&ndash;&gt;-->
+<!--                    <outputDirectory>${basedir}/target/allure-results</outputDirectory>-->
+<!--                </configuration>-->
+
+
             </plugin>
 
         </plugins>
@@ -57,7 +66,7 @@
         <dependency>
             <groupId>com.automation-remarks</groupId>
             <artifactId>video-recorder-testng</artifactId>
-            <version>LATEST</version>
+            <version>1.8</version>
         </dependency>
 
         <dependency>

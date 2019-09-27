@@ -5,6 +5,7 @@ import io.qameta.allure.SeverityLevel;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+import settings.BrowserMode;
 import settings.ISettings;
 import settings.concreteSettings.SettingsFactory;
 import settings.BrowserName;
@@ -22,7 +23,7 @@ public class CrossInstanceTests_Mob_Web {
     public void setUp() {
         IMPORTANT_INSTANCES = Utils.readFromPropertyfile("instances.properties");
         ALL_INSTANCES = Utils.readFromPropertyfile("all_instances.properties");
-        ENVIRONMENT_MOB = (new SettingsFactory()).runBrowserSettingsWith(BrowserName.CHROME,BrowserType.MOB_WEB);
+        ENVIRONMENT_MOB = (new SettingsFactory()).runBrowserSettingsWith(BrowserName.CHROME,BrowserType.MOB_WEB, BrowserMode.HEADLESS);
     }
 
 

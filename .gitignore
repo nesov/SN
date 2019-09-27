@@ -13,3 +13,4 @@ testng-reports.css
 testng.css
 *.css
 *.gif
+/video/

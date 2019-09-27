@@ -7,6 +7,7 @@ import org.openqa.selenium.firefox.GeckoDriverService;
 import org.openqa.selenium.logging.LogType;
 import org.openqa.selenium.logging.LoggingPreferences;
 import org.openqa.selenium.remote.CapabilityType;
+import settings.BrowserMode;
 import settings.BrowserType;
 import settings.ISettings;
 
@@ -18,7 +19,7 @@ public class FirefoxSettings implements ISettings {
 
     public FirefoxSettings(){}
 
-    public void setUp(BrowserType type){
+    public void setUp(BrowserType type, BrowserMode browserMode){
 
         System.setProperty("webdriver.gecko.driver","drivers/geckodriver");
 

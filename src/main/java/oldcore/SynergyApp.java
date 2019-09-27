@@ -35,7 +35,7 @@ public class SynergyApp {
         PageFactory.initElements(driver, this);
     }
 
-    SynergyApp(){}
+    public SynergyApp(){}
 
 
     public BottomMenu bottomBar(){

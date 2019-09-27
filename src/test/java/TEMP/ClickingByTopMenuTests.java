@@ -1,4 +1,11 @@
-//import utils.BaseTest;
+//package TEMP;
+//
+//import oldcore.SynergyApp;
+//import settings.BrowserName;
+//import settings.BrowserType;
+//import settings.ISettings;
+//import settings.concreteSettings.SettingsFactory;
+////import utils.BaseTest;
 //import org.openqa.selenium.By;
 //import org.openqa.selenium.WebElement;
 //import org.testng.annotations.*;
@@ -8,11 +15,15 @@
 // * Created by alexnesov on 21/03/2017.
 // */
 //
-//public class ClickingByTopMenuTests extends BaseTest{
+//public class ClickingByTopMenuTests{
+//
+//    private ISettings env = (new SettingsFactory().runBrowserSettingsWith(BrowserName.CHROME, BrowserType.WEB));
+//    private SynergyApp app = new SynergyApp();
+//
 //
 //    void closeModal()throws InterruptedException{
-//        WebElement closebtn = driver.findElement(By.className("btnclose"));
-//        Actions mouseAction = new Actions(driver);
+//        WebElement closebtn = env.getDriver().findElement(By.className("btnclose"));
+//        Actions mouseAction = new Actions(env.getDriver());
 //        mouseAction.click(closebtn);
 //        mouseAction.build().perform();
 //    }
@@ -21,16 +32,17 @@
 //        Thread.sleep(2000);
 //    }
 //    @BeforeTest
-//    @Override
+////    @Override
 //    public void setUp() {
-//        super.setUp();
-//        driver.get("https://synergy.net");
+////        super.setUp();
+////        driver.get("https://synergy.net");
+//        env.getDriver().get("https://synergy.net");
 //    }
 //
 //    @AfterTest
-//    @Override
+////    @Override
 //    public void tearDown() {
-//        super.tearDown();
+////        super.tearDown();
 //    }
 //
 //    @Test

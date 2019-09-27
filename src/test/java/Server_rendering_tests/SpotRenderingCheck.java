@@ -3,6 +3,7 @@ package Server_rendering_tests;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import org.testng.annotations.*;
+import settings.BrowserMode;
 import settings.concreteSettings.SettingsFactory;
 import settings.BrowserName;
 import settings.BrowserType;
@@ -36,24 +37,24 @@ public class SpotRenderingCheck {
             "https://"+PREFIX+"envisacarerx.synergy.net",
             "https://"+PREFIX+"premierpharmacysa.synergy.net",
             "https://"+PREFIX+".synergy.net",
-//            "http://"+PREFIX+"synergetica.synergy.net",
-//            "https://"+PREFIX+"alsma.synergy.net",
-//            "https://"+PREFIX+"ukrcemfor.synergy.net",
-//            "https://"+PREFIX+"localknowledge.synergy.net",
-//            "https://"+PREFIX+"digitalfestival.synergy.net",
-//            "https://"+PREFIX+"shift.synergy.net",
-//            "https://"+PREFIX+"testingstage.synergy.net",
-//            "https://"+PREFIX+"item.synergy.net",
-//            "https://"+PREFIX+"gdpr.synergy.net",
-//            "https://"+PREFIX+"ruby.synergy.net",
-//            "https://"+PREFIX+"lts.synergy.net",
-//            "https://"+PREFIX+"lsa.synergy.net",
-//            "https://"+PREFIX+"vendasta.synergy.net",
-//            "http://"+PREFIX+"antiguayello.synergy.net",
-//            "https://"+PREFIX+"localcomm.synergy.net",
-//            "https://"+PREFIX+"tompkins.synergy.net",
-//            "https://"+PREFIX+"adp.synergy.net",
-//            "https://"+PREFIX+"mhi.synergy.net",
+            "http://"+PREFIX+"synergetica.synergy.net",
+            "https://"+PREFIX+"alsma.synergy.net",
+            "https://"+PREFIX+"ukrcemfor.synergy.net",
+            "https://"+PREFIX+"localknowledge.synergy.net",
+            "https://"+PREFIX+"digitalfestival.synergy.net",
+            "https://"+PREFIX+"shift.synergy.net",
+            "https://"+PREFIX+"testingstage.synergy.net",
+            "https://"+PREFIX+"item.synergy.net",
+            "https://"+PREFIX+"gdpr.synergy.net",
+            "https://"+PREFIX+"ruby.synergy.net",
+            "https://"+PREFIX+"lts.synergy.net",
+            "https://"+PREFIX+"lsa.synergy.net",
+            "https://"+PREFIX+"vendasta.synergy.net",
+            "http://"+PREFIX+"antiguayello.synergy.net",
+            "https://"+PREFIX+"localcomm.synergy.net",
+            "https://"+PREFIX+"tompkins.synergy.net",
+            "https://"+PREFIX+"adp.synergy.net",
+            "https://"+PREFIX+"mhi.synergy.net",
             "https://"+PREFIX+"passportcard.synergy.net"
 
     };
@@ -70,7 +71,7 @@ public class SpotRenderingCheck {
 
     @BeforeClass
     public void setUp() {
-        ENVIRONMENT = (new SettingsFactory()).runBrowserSettingsWith(BrowserName.CHROME,BrowserType.WEB);
+        ENVIRONMENT = (new SettingsFactory()).runBrowserSettingsWith(BrowserName.CHROME,BrowserType.WEB, BrowserMode.HEADLESS);
         PP = new ArrayList<>(initArray());
     }
 

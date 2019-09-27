@@ -3,6 +3,7 @@ package Server_rendering_tests;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import org.testng.annotations.*;
+import settings.BrowserMode;
 import settings.BrowserType;
 import settings.concreteSettings.ChromeSettings;
 import settings.ISettings;
@@ -79,7 +80,7 @@ public class Check_Server_Rendering_Test_Suite {
         ALL_INSTANCES = Utils.readFromPropertyfile("all_instances.properties");
 
         settings =  new ChromeSettings();
-        settings.setUp(BrowserType.WEB);
+        settings.setUp(BrowserType.WEB, BrowserMode.HEADLESS);
     }
 
     @AfterClass
