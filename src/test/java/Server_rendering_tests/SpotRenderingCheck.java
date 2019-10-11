@@ -11,6 +11,7 @@ import settings.ISettings;
 import utils.Utils;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 
 public class SpotRenderingCheck {
@@ -60,18 +61,14 @@ public class SpotRenderingCheck {
     };
 
     public ArrayList<String> initArray() throws ArrayIndexOutOfBoundsException{
-
         ArrayList<String> temp = new ArrayList<>();
-
-        for (int i =0; i < PRE_PROD_INTANCES.length; i++){
-            temp.add(PRE_PROD_INTANCES[i]);
-        }
+        temp.addAll(Arrays.asList(PRE_PROD_INTANCES));
         return temp;
     }
 
     @BeforeClass
     public void setUp() {
-        ENVIRONMENT = (new SettingsFactory()).runBrowserSettingsWith(BrowserName.CHROME,BrowserType.WEB, BrowserMode.HEADLESS);
+        ENVIRONMENT = (new SettingsFactory()).runBrowserSettingsWith(BrowserName.CHROME,BrowserType.WEB, BrowserMode.GRAPHIC);
         PP = new ArrayList<>(initArray());
     }
 
