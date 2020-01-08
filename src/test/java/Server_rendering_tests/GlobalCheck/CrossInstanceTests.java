@@ -54,9 +54,6 @@ public class CrossInstanceTests {
 
     }
 
-
-
-
     @Test(dependsOnMethods = "checking_rendering_on_important_instances",
             description = "Проверка серверного рендеринга инстансов на массиве всех элементов\n"+
                           "Браузер - Google Chrome\n"+

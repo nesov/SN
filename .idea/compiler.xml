@@ -10,9 +10,5 @@
         <module name="synergy-network" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="SN" target="1.8" />
-      <module name="synergy-network" target="1.8" />
-    </bytecodeTargetLevel>
   </component>
 </project>
